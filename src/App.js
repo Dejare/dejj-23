@@ -2,6 +2,7 @@ import React from "react";
 import "./assets/styles/main.scss";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { TbCornerRightDown } from "react-icons/tb";
+import img from './assets/images/PicsArt_06-12-09.30.35.jpg'
 
 const App = () => {
   return (
@@ -37,14 +38,14 @@ const App = () => {
                 Frontend Developer & creative director &nbsp;
               </div> */}
               <div
-                class="inline-block align-top animate-[crawling-line_20s_linear_infinite]"
+                class="inline-block align-top animate-[crawling-line_30s_linear_infinite]"
                 data-line="0"
               >
                 Frontend Developer & creative
                 director &nbsp;
               </div>
               <div
-                class="inline-block align-top animate-[crawling-line_20s_linear_infinite] mx-20"
+                class="inline-block align-top animate-[crawling-line_30s_linear_infinite] mx-20"
                 data-line="1"
               >
                 Frontend Developer & creative
@@ -56,7 +57,7 @@ const App = () => {
 
         {/* images, card */}
         <div className="flex md:flex-row flex-col p-5 w-screen items-center">
-          <div className="md:w-[50vw] w-[98%] h-screen bg-white rounded-xl p-4 flex flex-col items-start justify-between order-2">
+          <div className="md:w-[60vw] w-[98%] md:h-screen h-[80vh] bg-white rounded-xl p-4 ml-5 flex flex-col items-start justify-between md:order-1 order-2">
             <div>
               <h2 className="text-3xl">
                 Hey, I'm Adejare. <br /> I
@@ -69,14 +70,14 @@ const App = () => {
             </div>
             <button className="button rounded-full uppercase flex flex-row items-center border border-[#292929]">
               a bit about me{" "}
-              <div className="bg-[#292929] text-white rounded-full w-5 h-5 items-center justify-center flex border  ml-2">
+              <div className="bg-[#292929] text-white rounded-full w-5 h-5 items-center justify-center flex border  md:ml-2">
                 <TbCornerRightDown />
               </div>
             </button>
           </div>
-          <div>
-            <div className="md:w-[50vw] w-[98%] h-screen bg-white rounded-xl p-6 mx-5 order-1">
-              <h1>.....</h1>
+          <div className="md:w-[40vw] w-[100%] md:h-screen rounded-xl p-4 flex flex-col items-center justify-center md:order-2 order-1 md:mb-0 mb-8">
+            <div >
+              <img src={img} alt="picture OF ADEJARE" className="w-full rounded-2xl md:h-screen" />
             </div>
           </div>
         </div>
