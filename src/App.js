@@ -9,7 +9,7 @@ const App = () => {
       <header className="w-screen justify-between">
         <label htmlFor="logo">Adejare</label>
         <div className="flex flex-row items-center">
-          <button className="px-5 py-2 rounded-full bg-neutral-700 text-white text-sm md:mr-5 mr-1">
+          <button className="md:px-5 md:py-2 rounded-full bg-neutral-700 text-white text-sm md:mr-5 mr-1">
             COLOR MODE
           </button>
           <nav>
@@ -56,7 +56,7 @@ const App = () => {
 
         {/* images, card */}
         <div className="flex md:flex-row flex-col p-5 w-screen items-center">
-          <div className="md:w-[50vw] w-[90%] h-screen bg-white rounded-xl p-4 flex flex-col items-start justify-between">
+          <div className="md:w-[50vw] w-[98%] h-screen bg-white rounded-xl p-4 flex flex-col items-start justify-between">
             <div>
               <h2 className="text-3xl">
                 Hey, I'm Adejare. <br /> I
@@ -75,7 +75,7 @@ const App = () => {
             </button>
           </div>
           <div>
-            <div className="md:w-[50vw] w-[90%] h-screen bg-white rounded-xl p-6 mx-5 order-1"></div>
+            <div className="md:w-[50vw] w-[98%] h-screen bg-white rounded-xl p-6 mx-5 order-1"></div>
           </div>
         </div>
       </div>
