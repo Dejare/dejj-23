@@ -9,7 +9,7 @@ const App = () => {
       <header className="w-screen justify-between">
         <label htmlFor="logo">Adejare</label>
         <div className="flex flex-row items-center">
-          <button className="md:px-5 md:py-2 rounded-full bg-neutral-700 text-white text-sm md:mr-5 mr-1">
+          <button className="md:px-5 md:py-2 py-2 px-4 rounded-full bg-neutral-700 text-white text-sm md:mr-5 mr-1">
             COLOR MODE
           </button>
           <nav>
@@ -22,7 +22,7 @@ const App = () => {
       <div>
         {/* hero */}
         <div data-scroll-speed="2" data-scroll>
-          <div className="relative w-screen   md:h-[60vh] h-[50vh] flex items-center z-[5] text-[#f1f1f1] overflow-hidden">
+          <div className="relative w-screen   md:h-[60vh] h-[35vh] flex items-center z-[5] text-[#f1f1f1] overflow-hidden">
             <div class="inline-flex whitespace-nowrap crawling-line crawling-line--large font-head md:text-[350px] text-[250px] uppercase heading">
               {/* <div
                 class="inline-block align-top animate-[crawling-line_10s_linear_infinite]"
@@ -56,7 +56,7 @@ const App = () => {
 
         {/* images, card */}
         <div className="flex md:flex-row flex-col p-5 w-screen items-center">
-          <div className="md:w-[50vw] w-[98%] h-screen bg-white rounded-xl p-4 flex flex-col items-start justify-between">
+          <div className="md:w-[50vw] w-[98%] h-screen bg-white rounded-xl p-4 flex flex-col items-start justify-between order-2">
             <div>
               <h2 className="text-3xl">
                 Hey, I'm Adejare. <br /> I
@@ -75,7 +75,9 @@ const App = () => {
             </button>
           </div>
           <div>
-            <div className="md:w-[50vw] w-[98%] h-screen bg-white rounded-xl p-6 mx-5 order-1"></div>
+            <div className="md:w-[50vw] w-[98%] h-screen bg-white rounded-xl p-6 mx-5 order-1">
+              <h1>.....</h1>
+            </div>
           </div>
         </div>
       </div>
@@ -88,7 +90,7 @@ const App = () => {
               ABOUT ME
             </h1>
           </div>
-          <p className="md:w-6/12 w-full body md:text-3xl text-xl mr-4">
+          <p className="md:w-6/12 w-full body md:text-3xl text-xl mr-4 md:mt-0 mt-5">
             As a creative developer, I focus on both
             design, development and functionality —
             allowing me to work on projects from concept
@@ -106,7 +108,7 @@ const App = () => {
             </h1>
           </div>
           <div className="md:w-6/12 w-full">
-            <p className=" body md:text-3xl  text-xl md:mr-4">
+            <p className=" body md:text-3xl  text-xl md:mr-4 md:mt-0 mt-5">
               As a creative developer, I focus on
               both design, development and
               functionality — allowing me to work on
