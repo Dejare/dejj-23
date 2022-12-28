@@ -1,0 +1,104 @@
+.c-button {
+	display: inline-block;
+	background: transparent;
+	color: #292929;
+	font-size: 10px;
+	text-transform: uppercase;
+	padding: 5px 12px;
+	border: 1px solid #292929;
+	border-radius: 45px;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin: 0rem 0.2rem;
+
+	&:hover {
+		@media (any-pointer: fine) {
+			border-color: #292929;
+			color: white;
+			background: #292929;
+			font-weight: 500;
+		}
+	}
+
+	.c-link {
+		display: inline-flex;
+		align-items: center;
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+
+		&__inner {
+			display: flex;
+			transform: translateY(0);
+			// transition: transform 0.3s ease-out;
+			transition: transform 0.3s
+				cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			margin-right: 2px;
+
+			> span {
+				/* white-space: nowrap; */
+			}
+		}
+
+		&__animated {
+			/* white-space: nowrap; */
+			position: absolute;
+			top: 100%;
+			display: none;
+			font-family: "Body";
+
+			@media (any-pointer: fine) {
+				display: inline-block;
+			}
+		}
+	}
+
+	&:hover {
+		@media (any-pointer: fine) {
+			.c-link__inner {
+				transform: translateY(-100%);
+			}
+		}
+	}
+}
+
+.c-infinite {
+	.c-link {
+		display: inline-flex;
+		align-items: center;
+		position: relative;
+		z-index: 1;
+		overflow: hidden;
+
+		&__inner {
+			display: flex;
+			transform: translateY(-100%);
+			animation: infiniteArrow 1s infinite
+				cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+			> span {
+				/* white-space: nowrap; */
+			}
+		}
+
+		&__animated {
+			/* white-space: nowrap; */
+			position: absolute;
+			top: 100%;
+		}
+	}
+
+	// @include media(">tablet") {
+	//   &:hover {
+	//     .c-link__inner {
+	//       transform: translateY(-100%);
+	//     }
+	//   }
+	// }
+
+	@keyframes infiniteArrow {
+		100% {
+			transform: translateY(0);
+		}
+	}
+}

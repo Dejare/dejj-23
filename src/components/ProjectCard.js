@@ -7,12 +7,12 @@ const ProjectCard = ({ title, details, stackOne, stackTwo }) => {
             <div className='flex flex-col justify-between'>
                 <div className='w-full'>
                     <h1 className='heading md:text-8xl text-4xl uppercase'>{title}</h1>
-                    <div className='flex flex-row  flex-wrap items-center md:w-1/4 mt-5 md:mt-0'>
+                    <div className='flex flex-row  flex-wrap items-center md:w-2/4 mt-5 md:mt-0'>
                         <div className='stack'>React</div>
                         <div className='stack'>Tailwind</div>
                         <div className='stack'>Gsap</div>
                         <div className='stack'>{stackOne}</div>
-                        <div className='stack mt-5 md:mt-0'>{stackTwo}</div>
+                        <div className='stack mt-5 md:mt-3'>{stackTwo}</div>
                     </div>
                 </div>
                 <div className='md:w-2/4'>
