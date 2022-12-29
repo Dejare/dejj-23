@@ -65,3 +65,59 @@ header {
 	font-size: 10px;
 	text-transform: uppercase;
 }
+
+.navLink {
+	li {
+		margin: 0.5rem 0rem;
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		color: #c9c9c9;
+		flex-direction: row;
+		&:hover {
+			a {
+				color: white;
+				transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+				transform: translateX(30px);
+				@media screen and (max-width: 768px) {
+					transform: translateX(10px);
+				}
+			}
+			// transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
+		}
+		p {
+			font-family: "Body";
+			font-size: 20px;
+			margin-bottom: 5px;
+		}
+		a {
+			&:hover {
+				// transform: translateX(40px);
+				transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
+				hr {
+					border-top: 0.5px solid #fff;
+					transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
+				}
+			}
+		}
+	}
+	hr {
+		border-top: 0.5px solid #7c7c7c;
+		margin-bottom: 1rem;
+	}
+	.icon {
+		display: none;
+	}
+}
+
+.navLink li:hover p {
+	transform: translate3d(20px, -40px, 60px);
+	transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
+	@media screen and (max-width: 768px) {
+		transform: translate3d(10px, -20px, 30px);
+	}
+}
+.navLink li:hover .icon {
+	display: flex;
+	transition: 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}

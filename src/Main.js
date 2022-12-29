@@ -1,16 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./assets/styles/main.scss";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { TbCornerRightDown } from "react-icons/tb";
+import { TfiClose } from 'react-icons/tfi'
 import img from "./assets/images/PicsArt_06-12-09.30.35.jpg";
 import ProjectCard from "./components/ProjectCard";
 import LocomotiveScroll from "locomotive-scroll";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Nav from "./components/Nav";
 gsap.registerPlugin(ScrollTrigger)
 
 
 const Main = () => {
+    const [navOpen, setNavOpen] = useState(false)
+    const [Toggle, setToggle] = useState();
 
     useEffect(() => {
         const scrollEl = document.querySelector("[data-scroll-container]");
@@ -44,13 +48,21 @@ const Main = () => {
                         <button className="md:px-5 md:py-2 py-2 px-4 rounded-full bg-neutral-700 text-white text-sm md:mr-5 mr-1">
                             COLOR MODE
                         </button>
-                        <nav>
-                            <HiOutlineMenuAlt4 />
+                        <nav onClick={
+                            () => {
+                                setNavOpen(!navOpen)
+
+                            }
+
+                        }>
+                            {navOpen ? <TfiClose /> : <> <HiOutlineMenuAlt4 onClick={() => setToggle(false)} /></>}
                         </nav>
                     </div>
                 </header>
 
                 {/* section */}
+
+                {navOpen ? <> <Nav toggle={Toggle} /></> : null}
                 <div>
                     {/* hero */}
                     <div data-scroll-speed="2" data-scroll>
