@@ -8,11 +8,11 @@ const ProjectCard = ({ title, details, stackOne, stackTwo }) => {
                 <div className='w-full'>
                     <h1 className='heading md:text-8xl text-4xl uppercase'>{title}</h1>
                     <div className='flex flex-row  flex-wrap items-center md:w-2/4 mt-5 md:mt-0'>
-                        <div className='stack'>React</div>
-                        <div className='stack'>Tailwind</div>
-                        <div className='stack'>Gsap</div>
-                        <div className='stack'>{stackOne}</div>
-                        <div className='stack mt-5 md:mt-3'>{stackTwo}</div>
+                        <div className='stack mt-1'>React</div>
+                        <div className='stack mt-1' >Tailwind</div>
+                        <div className='stack mt-1'>Gsap</div>
+                        <div className='stack mt-1'>{stackOne}</div>
+                        <div className='stack mt-1 md:mt-1'>{stackTwo}</div>
                     </div>
                 </div>
                 <div className='md:w-2/4'>

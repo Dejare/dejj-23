@@ -1,16 +1,14 @@
 import gsap, { Power2, Power4 } from "gsap";
 import { useRef, useEffect } from "react";
 import { TfiAngleDoubleRight } from "react-icons/tfi";
+import '../assets/styles/ls.css'
 
-function Nav(props) {
+function Nav({ closeNav }) {
 
     const bg = useRef()
     // const bgOne = document.getElementById("#bg")
-    // const tl = gsap.timeline()
-    const toggle = props.toggle;
     const tl = useRef()
 
-    console.log(toggle)
     useEffect(() => {
         tl.current = gsap.timeline(
         )
@@ -44,56 +42,54 @@ function Nav(props) {
             })
     }, []);
 
-    useEffect(() => {
-        toggle ? tl.current.play() : tl.current.play()
-    }, []);
+
 
     return (
-        <div className="w-screen h-screen z-[1000]">
+        <div className="w-screen h-screen z-[1000] fixed">
             <div className="bg-[#464545] w-11/12 h-[95vh] flex flex-col m-auto rounded-3xl md:p-12 p-4" ref={bg} id="bg">
                 <nav className="w-full">
                     <ul className="uppercase text-white heading text-8xl navLink">
-                        <li id="li">
+                        <li id="li" onClick={closeNav}>
                             <div className="flex flex-row items-center">
                                 <TfiAngleDoubleRight
                                     size={20}
                                     className="icon mr-3"
                                 />
-                                <a href="">Home </a>
+                                <a href="/">Home </a>
                             </div>
                             <p>01</p>
                         </li>
                         <hr className="w-full" />
-                        <li id="li">
+                        <li id="li" onClick={closeNav}>
                             <div className="flex flex-row items-center">
                                 <TfiAngleDoubleRight
                                     size={20}
                                     className="icon mr-3"
                                 />
-                                <a href="">Work </a>
+                                <a href="#work">Work </a>
                             </div>
 
                             <p>02</p>
                         </li>
                         <hr className="w-full" />
-                        <li id="li">
+                        <li id="li" onClick={closeNav}>
                             <div className="flex flex-row items-center">
                                 <TfiAngleDoubleRight
                                     size={20}
                                     className="icon mr-3"
                                 />
-                                <a href="">Archives</a>
+                                <a href="#archives">Archives</a>
                             </div>
                             <p>03</p>
                         </li>
                         <hr className="w-full" />
-                        <li id="li">
+                        <li id="li" onClick={closeNav}>
                             <div className="flex flex-row items-center">
                                 <TfiAngleDoubleRight
                                     size={20}
                                     className="icon mr-3"
                                 />
-                                <a href="">Contact</a>
+                                <a href="#contact">Contact</a>
                             </div>
 
                             <p>04</p>
