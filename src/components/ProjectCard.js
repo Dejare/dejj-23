@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { TbCornerRightDown } from 'react-icons/tb'
 import musica from '../assets/images/musica.jpg'
+import gsap from 'gsap'
 
-const ProjectCard = ({ title, details, stackOne, stackTwo, image }) => {
+const ProjectCard = ({ title, details, stackOne, stackTwo, image, ref }) => {
+
+
+
     return (
-        <div className='w-[95vw] h-[90vh] bg-[#f9f9f9] flex flex-col md:flex-row m-auto rounded-2xl  mb-24'>
+
+        <div className='w-[95vw] h-[90vh] bg-[#f9f9f9] flex flex-col md:flex-row m-auto rounded-2xl  mb-24' id="project" ref={ref}>
             <div className='flex flex-col md:justify-between justify-evenly w-4/4 md:w-2/4 p-8'>
                 <div className='w-full'>
                     <h1 className='heading md:text-8xl text-4xl uppercase'>{title}</h1>

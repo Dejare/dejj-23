@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./assets/styles/main.scss";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { TbCornerRightDown } from "react-icons/tb";
@@ -20,6 +20,8 @@ const Main = () => {
     const [navOpen, setNavOpen] = useState(false)
     const [Toggle, setToggle] = useState();
 
+    const cardOne = useRef()
+
     useEffect(() => {
         const scrollEl = document.querySelector("[data-scroll-container]");
 
@@ -31,6 +33,7 @@ const Main = () => {
             tablet: {
                 breakpoint: 768,
             },
+            smartphone: { smooth: true, inertia: .65 }
         });
 
         setTimeout(() => {
@@ -174,10 +177,12 @@ const Main = () => {
                                 </div>
                             </div>
                             <div id="work">
+
                                 <ProjectCard
                                     title="Adejare V1.0"
                                     details="A super-clean award winning websites for an independent art director and web designer currently based in barca"
                                     image={adejare}
+                                    ref={cardOne}
                                 />
 
                                 <ProjectCard
@@ -237,7 +242,9 @@ const Main = () => {
 
                                     <div className="flex-row flex-wrap items-center justify-center md:flex m-auto flex">
 
-                                        <button class="nav__button c-button contact-scroll">
+                                        <button class="nav__button c-button contact-scroll" onClick={() => {
+                                            window.open("https://www.linkedin.com/in/adejarree/", "_blank")
+                                        }}>
                                             <span class="c-link">
                                                 <span class="c-link__inner">
                                                     <span> linkedin </span>
@@ -246,7 +253,9 @@ const Main = () => {
                                             </span>
                                         </button>
 
-                                        <button class="nav__button c-button contact-scroll">
+                                        <button class="nav__button c-button contact-scroll" onClick={() => {
+                                            window.open("https://www.github.com/dejare", "_blank")
+                                        }}>
                                             <span class="c-link">
                                                 <span class="c-link__inner">
                                                     <span> Github </span>
@@ -255,7 +264,9 @@ const Main = () => {
                                             </span>
                                         </button>
 
-                                        <button class="nav__button c-button contact-scroll">
+                                        <button class="nav__button c-button contact-scroll" onClick={() => {
+                                            window.open("https://twitter.com/Therealnicron?t=if7WE8sL0Lb5S-MNkK7Lrg&s=09", "_blank")
+                                        }}>
                                             <span class="c-link">
                                                 <span class="c-link__inner">
                                                     <span> Twitter </span>
@@ -264,17 +275,12 @@ const Main = () => {
                                             </span>
                                         </button>
 
-                                        <button class="nav__button c-button contact-scroll">
-                                            <span class="c-link">
-                                                <span class="c-link__inner">
-                                                    <span> contact </span>
-                                                    <span class="c-link__animated"> contact </span>
-                                                </span>
-                                            </span>
-                                        </button>
+
                                     </div>
                                     <div className="text-center mt-5 md:text-left">
-                                        <button>Back to top</button>
+                                        <button onClick={() => {
+                                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        }}>Back to top</button>
                                         <p>&copy; 2022 - All Rights Reserved</p>
                                     </div>
                                 </div>
