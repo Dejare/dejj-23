@@ -9,6 +9,10 @@ import LocomotiveScroll from "locomotive-scroll";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Nav from "./components/Nav";
+import gnd from "./assets/images/gnd.jpg";
+import musica from './assets/images/musica.jpg';
+import evaluate from './assets/images/evaluate.jpg'
+import adejare from './assets/images/adejare.png'
 gsap.registerPlugin(ScrollTrigger)
 
 
@@ -173,11 +177,14 @@ const Main = () => {
                                 <ProjectCard
                                     title="Adejare V1.0"
                                     details="A super-clean award winning websites for an independent art director and web designer currently based in barca"
+                                    image={adejare}
                                 />
+
                                 <ProjectCard
                                     title="Evaluate V1.0"
                                     details="An all round intuitive, precise testing systems for students"
                                     stackOne="Supabase"
+                                    image={evaluate}
 
                                 />
                                 <ProjectCard
@@ -185,12 +192,14 @@ const Main = () => {
                                     details="An online music streaming platform with search and sort functionality consuming spotify's API"
                                     stackOne="Spotify"
                                     stackTwo="API's"
+                                    image={musica}
                                 />
                                 <ProjectCard
                                     title="GND Crypto"
                                     details="An online dashboard for cryptocurrency transactions (mock numbers) with state management "
                                     stackOne="Redux"
                                     stackTwo="API's"
+                                    image={gnd}
                                 />
                             </div>
 
