@@ -4,7 +4,7 @@ import musica from '../assets/images/musica.jpg'
 
 const ProjectCard = ({ title, details, stackOne, stackTwo, image }) => {
     return (
-        <div className='w-[95vw] h-[90vh] bg-[#f9f9f9] flex flex-col md:flex-row m-auto rounded-2xl  mb-16'>
+        <div className='w-[95vw] h-[90vh] bg-[#f9f9f9] flex flex-col md:flex-row m-auto rounded-2xl  mb-24'>
             <div className='flex flex-col md:justify-between justify-evenly w-4/4 md:w-2/4 p-8'>
                 <div className='w-full'>
                     <h1 className='heading md:text-8xl text-4xl uppercase'>{title}</h1>
@@ -28,7 +28,7 @@ const ProjectCard = ({ title, details, stackOne, stackTwo, image }) => {
             </div>
 
 
-            <div className="w-4/4 md:w-2/4 h-2/4 mt-12 relative"> <img src={image} alt="Project Image" className='h-full w-full  object-cover' /></div>
+            <div className="w-4/4 md:w-2/4 h-2/4 md:h-full  md:object-cover mt-12 md:mt-0 relative"> <img src={image} alt="Project Image" className='h-full w-full  object-cover' /></div>
         </div>
     )
 }

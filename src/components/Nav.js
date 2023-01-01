@@ -41,8 +41,8 @@ function Nav({ closeNav }) {
                 ease: Power4.easeInOut
             })
     }, []);
-
-
+    const artist = ["Currently Offline", "The Kid Laroi", "NF", "Daughter", "Davido", "Burna Boy", "Currently Offline", "Little Simz", "Daxx", "Young jonn"]
+    const random = Math.floor(Math.random() * 10) + 1
 
     return (
         <div className="w-screen h-screen z-[1000] fixed">
@@ -104,7 +104,7 @@ function Nav({ closeNav }) {
                     </div>
                     <div>
                         <p className="text-[10px] uppercase text-[#a3a3a3] font-bold">Listening to</p>
-                        <h2>The Kid Laroi</h2>
+                        <h2>{artist[random]}</h2>
                     </div>
 
                 </div>
