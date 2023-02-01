@@ -1,4 +1,4 @@
-import gsap, { Power2, Power4 } from "gsap";
+import gsap, { Power1, Power2, Power4 } from "gsap";
 import { useRef, useEffect } from "react";
 import { TfiAngleDoubleRight } from "react-icons/tfi";
 import '../assets/styles/ls.css'
@@ -18,17 +18,18 @@ function Nav({ closeNav }) {
                 paused: false
             }, {
                 y: 0,
-                duration: 1,
-                repeat: 0
+                duration: .7,
+                repeat: 0,
+                ease: Power1.easeIn()
             })
             .fromTo("#li", {
-                y: 50,
+                y: 100,
                 opacity: 0
             }, {
                 y: 0,
                 opacity: 1,
-                stagger: 0.2,
-                ease: Power2.easeIn
+                stagger: 0.1,
+                ease: Power2.easeIn()
             })
             .fromTo("#status",
                 {
@@ -37,12 +38,18 @@ function Nav({ closeNav }) {
                 }, {
                 y: 0,
                 opacity: 1,
-                duration: .5,
-                ease: Power4.easeInOut
+                duration: .4,
+                ease: Power4.easeInOut()
             })
+
+          
+          
     }, []);
+   const reverseAnim = () => {
+    tl.current.reverse()
+   }
     const artist = ["Currently Offline", "The Kid Laroi", "NF", "Daughter", "Davido", "Burna Boy", "Currently Offline", "Little Simz", "Daxx", "Young jonn"]
-    const random = Math.floor(Math.random() * 10) + 1
+    const random  = Math.floor(Math.random() * 10) + 1
 
     return (
         <div className="w-screen h-screen z-[1000] fixed">

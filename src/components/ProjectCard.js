@@ -3,7 +3,7 @@ import { TbCornerRightDown } from 'react-icons/tb'
 import musica from '../assets/images/musica.jpg'
 import gsap from 'gsap'
 
-const ProjectCard = ({ title, details, stackOne, stackTwo, image, ref }) => {
+const ProjectCard = ({ title, details, stackOne, stackTwo, image, ref, link }) => {
 
 
 
@@ -23,12 +23,22 @@ const ProjectCard = ({ title, details, stackOne, stackTwo, image, ref }) => {
                 </div>
                 <div className='md:w-2/4 mt-12 md:mt-0'>
                     <p>{details}</p>
-                    <button className="button rounded-full uppercase flex flex-row items-center border border-[#292929] text-sm">
-                        Visit Live{" "}
-                        <div className="bg-[#292929] text-white rounded-full w-5 h-5 items-center justify-center flex border ml-3 md:ml-2">
+                   
+                  <div className='mt-5'>
+                  <button class="nav__button c-button contact-scroll " onClick={() => {
+                                            window.open(`${link}`, "_blank")
+                                        }}>
+                                            <span class="c-link">
+                                                <span class="c-link__inner">
+                                                    <span> Visit Live </span>
+                                                    <span class="c-link__animated"> Visit Live </span>
+                                                </span>
+                                            </span>
+                                            <div className="bg-[#292929] text-white rounded-full w-5 h-5 items-center justify-center flex border ml-3 md:ml-2">
                             <TbCornerRightDown />
                         </div>
-                    </button>
+                                        </button>
+                  </div>
                 </div>
             </div>
 

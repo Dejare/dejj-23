@@ -3,7 +3,7 @@ import "./assets/styles/main.scss";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { TbCornerRightDown } from "react-icons/tb";
 import { TfiClose } from 'react-icons/tfi'
-import img from "./assets/images/PicsArt_06-12-09.30.35.jpg";
+import img from "./assets/images/dejj.jpg";
 import ProjectCard from "./components/ProjectCard";
 import LocomotiveScroll from "locomotive-scroll";
 import gsap from "gsap";
@@ -13,14 +13,29 @@ import gnd from "./assets/images/gnd.jpg";
 import musica from './assets/images/musica.jpg';
 import evaluate from './assets/images/evaluate.jpg'
 import adejare from './assets/images/adejare.png'
+import { pageAnimation } from "./assets/PageAnimation";
+import emoji from './assets/images/emoji.png'
 gsap.registerPlugin(ScrollTrigger)
 
 
 const Main = () => {
     const [navOpen, setNavOpen] = useState(false)
     const [Toggle, setToggle] = useState();
-
+    const [MouseMove, setMouseMove] = useState()
+    const [MouseMoveY, setMouseMoveY] = useState()
     const cardOne = useRef()
+
+
+useEffect(() => {
+
+    window.addEventListener("mousemove", (e)=>{
+        setMouseMove((e.pageX))
+        setMouseMoveY((e.pageY))
+    })
+    
+    
+}, [])
+
 
     useEffect(() => {
         const scrollEl = document.querySelector("[data-scroll-container]");
@@ -41,6 +56,8 @@ const Main = () => {
         }, 1000);
 
         scroll.on("scroll", ScrollTrigger.update);
+
+        pageAnimation()
 
     }, []);
 
@@ -70,6 +87,7 @@ const Main = () => {
                 {/* section */}
                 {
                     navOpen ? <>
+                        
                         <Nav closeNav={() => setNavOpen(false)} />
 
                     </> :
@@ -131,14 +149,15 @@ const Main = () => {
                             </div>
                             {/* about  */}
                             <hr className="my-4 border-[#fff7]" />
-                            <div className="mt-8">
+                            
+                            <div className="mt-8" id="aboutTrigger">
                                 <div className="flex md:flex-row flex-col items-start justify-between p-4 w-screen text-white mb-12">
                                     <div className="md:w-2/12 w-full">
-                                        <h1 className="heading md:text-8xl text-5xl">
+                                        <h1 className="heading md:text-8xl text-5xl" id="aboutHead">
                                             ABOUT ME
                                         </h1>
                                     </div>
-                                    <p className="md:w-6/12 w-full body md:text-3xl text-xl mr-4 md:mt-0 mt-5">
+                                    <p className="md:w-6/12 w-full body md:text-3xl text-xl mr-4 md:mt-0 mt-5" id="aboutBody">
                                         As a creative developer, I focus on both
                                         design, development and functionality —
                                         allowing me to work on projects from concept
@@ -151,12 +170,12 @@ const Main = () => {
                                 <hr className="my-4 border-[#fff7]" />
                                 <div className="flex md:flex-row flex-col items-start justify-between p-4 w-screen text-white mb-12">
                                     <div className="md:w-2/12 w-full">
-                                        <h1 className="heading md:text-8xl text-5xl">
+                                        <h1 className="heading md:text-8xl text-5xl" id="servicesHead">
                                             WHAT I DO
                                         </h1>
                                     </div>
                                     <div className="md:w-6/12 w-full">
-                                        <p className=" body md:text-3xl  text-xl md:mr-4 md:mt-0 mt-5">
+                                        <p className=" body md:text-3xl  text-xl md:mr-4 md:mt-0 mt-5" id="servicesBody">
                                             As a creative developer, I focus on
                                             both design, development and
                                             functionality — allowing me to work on
@@ -183,6 +202,7 @@ const Main = () => {
                                     details="A super-clean award winning websites for an independent art director and web designer currently based in barca"
                                     image={adejare}
                                     ref={cardOne}
+                                    link="https://adejare.vercel.app/"
                                 />
 
                                 <ProjectCard
@@ -190,6 +210,7 @@ const Main = () => {
                                     details="An all round intuitive, precise testing systems for students"
                                     stackOne="Supabase"
                                     image={evaluate}
+                                    link="https://evaluattee.vercel.app"
 
                                 />
                                 <ProjectCard
@@ -198,6 +219,7 @@ const Main = () => {
                                     stackOne="Spotify"
                                     stackTwo="API's"
                                     image={musica}
+                                    link="https://musicaa.vercel.app"
                                 />
                                 <ProjectCard
                                     title="GND Crypto"
@@ -205,11 +227,12 @@ const Main = () => {
                                     stackOne="Redux"
                                     stackTwo="API's"
                                     image={gnd}
+                                    link="https://dashboard-dejare.vercel.app"
                                 />
                             </div>
 
                             {/* footer */}
-                            <div className="w-[95vw] h-[90vh] bg-[#fff] m-auto rounded-2xl mb-12 p-6 flex flex-col items-center justify-between text-[#292929]" id="contact">
+                            <div className=" w-[95vw] h-[90vh] bg-[#fff] m-auto rounded-2xl mb-12 p-6 flex flex-col items-center justify-between text-[#292929]" id="contact" >
                                 <div className="flex md:flex-row flex-col items-center w-full justify-between font-[100]">
                                     <div>
                                         <p className="text-[#292929]">
@@ -224,6 +247,11 @@ const Main = () => {
                                     </div>
                                 </div>
                                 <div className="text-center">
+                                    {/* <div className="w-[15%] absolute t/4  -2/4 " id="contactImg" style={{
+                                        "transform": `translate(${MouseMove}px, ${MouseMoveY}px)`,
+                                    }}>
+                                        <img src={emoji} />
+                                    </div> */}
                                     <h1 className="heading md:text-[180px] text-8xl leading-[5rem] md:leading-[10rem] uppercase text-center text-[#292929]">
                                         Interested in <br /> working together?
                                     </h1>

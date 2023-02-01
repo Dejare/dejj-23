@@ -11,9 +11,6 @@ const App = () => {
     setLoading(false)
   }, 3000)
 
-
-
-
   return (
     <div>
       {

@@ -23,3 +23,13 @@ body {
 button {
 	outline: none;
 }
+
+#aboutHead, #aboutBody, #servicesHead, #servicesBody {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+	// color: red;
+}
+
+.word {
+	transform: translateY(300px);
+	transition: transform 0.5;
+}
