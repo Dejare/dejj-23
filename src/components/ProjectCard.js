@@ -3,7 +3,7 @@ import { TbCornerRightDown } from 'react-icons/tb'
 import musica from '../assets/images/musica.jpg'
 import gsap from 'gsap'
 
-const ProjectCard = ({ title, details, stackOne, stackTwo, image, ref, link }) => {
+const ProjectCard = ({ title, details, stackOne, stackTwo, image, ref, link, display, displayTwo }) => {
 
 
 
@@ -17,8 +17,8 @@ const ProjectCard = ({ title, details, stackOne, stackTwo, image, ref, link }) =
                         <div className='stack mt-1'>React</div>
                         <div className='stack mt-1' >Tailwind</div>
                         <div className='stack mt-1'>Gsap</div>
-                        <div className='stack mt-1'>{stackOne}</div>
-                        <div className='stack mt-1 md:mt-1'>{stackTwo}</div>
+                        <div className='stack mt-1'style={{"display": `${display}`}}>{stackOne}</div>
+                        <div className='stack mt-1 md:mt-1' style={{"display": `${displayTwo}`}}>{stackTwo}</div>
                     </div>
                 </div>
                 <div className='md:w-2/4 mt-12 md:mt-0'>

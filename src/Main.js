@@ -203,6 +203,8 @@ useEffect(() => {
                                     image={adejare}
                                     ref={cardOne}
                                     link="https://adejare.vercel.app/"
+                                    display="none"
+                                    displayTwo="none"
                                 />
 
                                 <ProjectCard
@@ -211,6 +213,7 @@ useEffect(() => {
                                     stackOne="Supabase"
                                     image={evaluate}
                                     link="https://evaluattee.vercel.app"
+                                    displayTwo="none"
 
                                 />
                                 <ProjectCard
