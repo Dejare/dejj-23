@@ -157,7 +157,7 @@ useEffect(() => {
                                             ABOUT ME
                                         </h1>
                                     </div>
-                                    <p className="md:w-6/12 w-full body md:text-3xl text-xl mr-4 md:mt-0 mt-5" id="aboutBody">
+                                    <p className="md:w-6/12 w-full body md:text-2xl text-xl mr-4 md:mt-0 mt-5" id="aboutBody">
                                         As a creative developer, I focus on both
                                         design, development and functionality —
                                         allowing me to work on projects from concept
@@ -175,7 +175,7 @@ useEffect(() => {
                                         </h1>
                                     </div>
                                     <div className="md:w-6/12 w-full">
-                                        <p className=" body md:text-3xl  text-xl md:mr-4 md:mt-0 mt-5" id="servicesBody">
+                                        <p className=" body md:text-2xl  text-xl md:mr-4 md:mt-0 mt-5" id="servicesBody">
                                             As a creative developer, I focus on
                                             both design, development and
                                             functionality — allowing me to work on
