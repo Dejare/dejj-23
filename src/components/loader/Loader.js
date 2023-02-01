@@ -7,7 +7,7 @@ const Loader = () => {
     const wrapper = useRef()
 
     useEffect(() => {
-        const loadingInterval = setInterval(() => { setLoadingValue(prevValue => prevValue + 1) }, 20)
+        const loadingInterval = setInterval(() => { setLoadingValue(prevValue => prevValue + 1) }, 40)
 
         setTimeout(() => {
             clearInterval(loadingInterval)
@@ -20,7 +20,7 @@ const Loader = () => {
                 duration: .6,
                 opacity: .05
             })
-        }, 2000);
+        }, 4000);
 
     }, []);
     return (
