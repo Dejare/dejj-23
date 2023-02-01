@@ -120,7 +120,7 @@ useEffect(() => {
                                 <div className="flex md:flex-row flex-col p-5 w-screen items-center">
                                     <div className="md:w-[60vw] w-[98%] md:h-screen h-[80vh] bg-white rounded-xl p-4 ml-5 flex flex-col items-start justify-between md:order-1 order-2">
                                         <div>
-                                            <h2 className="md:text-3xl text-xl font-bold">
+                                            <h2 className="md:text-3xl text-xl font-normal">
                                                 Hey, I'm Adejare. <br /> I
                                                 curate immersive experience with
                                                 technology and work with people
