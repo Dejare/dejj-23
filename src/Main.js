@@ -120,7 +120,7 @@ useEffect(() => {
                                 <div className="flex md:flex-row flex-col p-5 w-screen items-center">
                                     <div className="md:w-[60vw] w-[98%] md:h-screen h-[80vh] bg-white rounded-xl p-4 ml-5 flex flex-col items-start justify-between md:order-1 order-2">
                                         <div>
-                                            <h2 className="text-3xl font-normal">
+                                            <h2 className="md:text-3xl text-xl font-bold">
                                                 Hey, I'm Adejare. <br /> I
                                                 curate immersive experience with
                                                 technology and work with people
@@ -176,15 +176,7 @@ useEffect(() => {
                                     </div>
                                     <div className="md:w-6/12 w-full">
                                         <p className=" body md:text-2xl  text-xl md:mr-4 md:mt-0 mt-5" id="servicesBody">
-                                            As a creative developer, I focus on
-                                            both design, development and
-                                            functionality — allowing me to work on
-                                            projects from concept until the very
-                                            moment I hit publish. Unique layouts,
-                                            functionality, great typography,
-                                            clean, reuseable and readable codebase
-                                            is what I focus on when working on
-                                            websites.
+                                            To be continued....
                                         </p>
                                         <button className="button rounded-full uppercase flex flex-row items-center text-white border-white border ">
                                             explore my work{" "}
