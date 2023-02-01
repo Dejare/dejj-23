@@ -260,7 +260,7 @@ useEffect(() => {
                                     </h1>
                                     <p className="text-sm ">Drop me an email</p>
                                     <a
-                                        href="@mailto:inioluwaadesida@gmail.com"
+                                        href="mailto:inioluwaadesida@gmail.com"
                                         className="text-xl"
                                     >
                                         inioluwaadesida@gmail.com
