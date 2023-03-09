@@ -6,7 +6,6 @@ import '../assets/styles/ls.css'
 function Nav({ closeNav }) {
 
     const bg = useRef()
-    // const bgOne = document.getElementById("#bg")
     const tl = useRef()
 
     useEffect(() => {

@@ -1,35 +1,196 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 html,
 body {
-	background: #292929;
-	font-family: "Body";
-	scroll-behavior: smooth;
-	overflow-x: hidden;
-	// width: 100vw;
+  background: #292929;
+  font-family: "Body";
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  // width: 100vw;
 }
 
 .heading {
-	font-family: "Heading";
+  font-family: "Heading";
 }
 
 .body {
-	font-family: "Body";
+  font-family: "Body";
 }
 
 button {
-	outline: none;
+  outline: none;
 }
 
-#aboutHead, #aboutBody, #servicesHead, #servicesBody {
-	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-	// color: red;
+.projects-item {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 2rem;
+  width: 100%;
+  max-height: 90rem;
+}
+
+#aboutHead,
+#aboutBody,
+#servicesHead,
+#servicesBody,
+#footer-text {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  // color: red;
 }
 
 .word {
-	transform: translateY(300px);
-	transition: transform 0.5;
+  // transform: translateY(-300px);
+  transition: transform 0.5;
+}
+
+.footer-emoji_w {
+  // position: ;
+
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.footer-emoji {
+  width: 10em;
+  height: auto;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  @media screen and (max-width: 768px) {
+    width: 6em;
+  }
+}
+
+.service-cards {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto auto;
+  grid-template-rows: auto auto;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.service-card {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  padding: 1.25rem 1.5rem 1.25rem 1.25rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  grid-column-gap: 5em;
+  grid-row-gap: 5em;
+  border-radius: 0.5rem;
+  background-color: #343434;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem;
+  }
+}
+.service-card.is-black {
+  background-color: #292929;
+  color: #fff;
+}
+.heading-padding {
+  padding-top: 0.5rem;
+}
+.heading-padding.is--sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4em;
+}
+.service-c_icon-w {
+  width: 4em;
+  height: 4em;
+  margin-bottom: 1rem;
+  padding: 0.8em;
+  border-radius: 0.5rem;
+  background-color: #fff;
+}
+.service-c_icon {
+  width: 100%;
+  height: 100%;
+}
+.service-c_bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 100%, 0.05);
+}
+.service-c_buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  grid-column-gap: 0.625rem;
+  grid-row-gap: 0.625rem;
+}
+.text-bubble {
+  padding: 0.25rem 0.8rem;
+  border: 1px solid #fff;
+  border-radius: 10rem;
+  opacity: 0.5;
+  font-size: 0.625rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.text-bubble.is--black {
+  border-color: #292929;
+  opacity: 1;
+}
+.service-c_p {
+  margin-bottom: 1.5rem;
+  // font-size: 20px;
+  // line-height: -11%;
 }
