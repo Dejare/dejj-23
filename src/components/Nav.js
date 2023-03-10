@@ -72,7 +72,7 @@ function Nav({ closeNav }) {
                                     size={20}
                                     className="icon mr-3"
                                 />
-                                <a href="#work">Work </a>
+                                <a href="#about">About </a>
                             </div>
 
                             <p>02</p>
@@ -84,7 +84,7 @@ function Nav({ closeNav }) {
                                     size={20}
                                     className="icon mr-3"
                                 />
-                                <a href="#archives">Archives</a>
+                                <a href="#projects">Projects</a>
                             </div>
                             <p>03</p>
                         </li>

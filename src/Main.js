@@ -24,42 +24,14 @@ gsap.registerPlugin(ScrollTrigger);
 const Main = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [Toggle, setToggle] = useState();
-  const [MouseMove, setMouseMove] = useState();
-  const [MouseMoveY, setMouseMoveY] = useState();
 
-  useEffect(() => {
-    window.addEventListener("mousemove", (e) => {
-      setMouseMove(e.pageX);
-      setMouseMoveY(e.pageY);
-    });
-  }, []);
 
-  useEffect(() => {
-    const scrollEl = document.querySelector("[data-scroll-container]");
-
-    // const scroll = new LocomotiveScroll({
-    //   el: scrollEl,
-    //   smooth: true,
-    //   lerp: 0.06,
-    //   inertia: 0.35,
-    //   tablet: {
-    //     breakpoint: 768,
-    //   },
-    //   smartphone: { smooth: true, inertia: 0.15 },
-    // });
-
-    // setTimeout(() => {
-    //   scroll.update();
-    // }, 1000);
-
-    // scroll.on("scroll", ScrollTrigger.update);
-  }, []);
   PageAnimation();
 
   return (
     <div data-scroll-container>
       <div className="w-screen">
-        <header className="w-screen justify-between">
+        <header className="w-screen justify-between" >
           <label htmlFor="logo">Adejare™</label>
           <div className="flex flex-row items-center">
             <button className="md:px-5 md:py-2 py-2 px-4 rounded-full bg-neutral-700 text-white text-sm md:mr-5 mr-1">
@@ -145,7 +117,7 @@ const Main = () => {
             {/* about  */}
             <hr className="my-4 border-[#fff7]" />
 
-            <div className="mt-8" id="aboutTrigger">
+            <div className="mt-8" id="about">
               <div className="flex md:flex-row flex-col items-start justify-between p-4 w-screen text-white mb-12">
                 <div className="md:w-2/12 w-full">
                   <h1 className="heading md:text-7xl text-4xl" id="aboutHead">
@@ -154,9 +126,9 @@ const Main = () => {
                 </div>
                 <div className="md:w-6/12 w-full body md:text-2xl text-xl mr-4 md:mt-0 mt-5">
                   <p id="abouBody" words-slide-down="" text-split="">
-                   I'm Adejare Daniels. I am a self-taught Front-end
-                    Developer and school taught computer engineer. I'm currently
-                    a student of the Federal University Of Technology, Akure. <br/> As a
+                    I'm Adejare Daniels. I am a self-taught Front-end Developer
+                    and school taught computer engineer. I'm currently a student
+                    of the Federal University Of Technology, Akure. <br /> As a
                     creative developer, I focus on both design, development and
                     functionality — allowing me to work on projects from concept
                     until the very moment I hit publish. Unique layouts,
@@ -305,7 +277,7 @@ const Main = () => {
               </div>
             </div>
 
-            <div className="mx-6 text-white ">
+            <div className="mx-6 text-white " id="projects">
               <h1
                 className="heading md:text-8xl text-5xl text-white"
                 id="aboutHead"
@@ -314,9 +286,7 @@ const Main = () => {
               </h1>
               <p>Here are some of my past works..</p>
               <div id="project" className="my-20"></div>
-                <div className="md:mx-12">
-                  
-                  
+              <div className="md:mx-12">
                 <NewProjectCard
                   projectClass={"projectOne"}
                   title="Adejare V1.0"
@@ -326,7 +296,7 @@ const Main = () => {
                   display="none"
                   displayTwo="none"
                 />
-                 <NewProjectCard
+                <NewProjectCard
                   title="Mallet!"
                   details="A simple landing page for an NFT trading organization"
                   stackOne="Framer"
