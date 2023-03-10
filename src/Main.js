@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 import "./assets/styles/main.scss";
 import { HiOutlineMenuAlt4, HiArrowCircleUp } from "react-icons/hi";
 import { TbCornerRightDown } from "react-icons/tb";
@@ -19,6 +19,7 @@ import iconOne from "./assets/images/iconOne.svg";
 import iconTwo from "./assets/images/iconTwo.svg";
 import iconThree from "./assets/images/iconThree.svg";
 import iconFour from "./assets/images/iconFour.svg";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Main = () => {
@@ -37,6 +38,7 @@ const Main = () => {
             <button className="md:px-5 md:py-2 py-2 px-4 rounded-full bg-neutral-700 text-white text-sm md:mr-5 mr-1">
               COLOR MODE
             </button>
+       
             <nav
               onClick={() => {
                 setNavOpen(!navOpen);
