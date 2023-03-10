@@ -309,7 +309,7 @@ const Main = () => {
                   stackOne="Framer"
                   stackTwo="Null"
                   image={mallet}
-                  link="https://dashboard-dejare.vercel.app"
+                  link="https://mallet.vercel.app/"
                 />
 
                 <NewProjectCard
