@@ -84,7 +84,7 @@ const PageAnimation = () => {
       tl.from($(this).find(".char"), {
         opacity: 0,
         yPercent: -120,
-        duration: 0.9,
+        duration: 0.6,
         ease: Power2.easeOut(),
         stagger: { amount: 0.5 },
       });
