@@ -31,7 +31,7 @@ const Main = () => {
   return (
     <div data-scroll-container>
       <div className="w-screen">
-        <header className="w-screen justify-between" >
+        <header className="w-screen justify-between">
           <label htmlFor="logo">Adejare™</label>
           <div className="flex flex-row items-center">
             <button className="md:px-5 md:py-2 py-2 px-4 rounded-full bg-neutral-700 text-white text-sm md:mr-5 mr-1">
@@ -120,7 +120,12 @@ const Main = () => {
             <div className="mt-8" id="about">
               <div className="flex md:flex-row flex-col items-start justify-between p-4 w-screen text-white mb-12">
                 <div className="md:w-2/12 w-full">
-                  <h1 className="heading md:text-7xl text-4xl" id="aboutHead">
+                  <h1
+                    className="heading md:text-7xl text-4xl"
+                    id="aboutHead"
+                    words-slide-down=""
+                    text-split=""
+                  >
                     ABOUT ME
                   </h1>
                 </div>
@@ -152,6 +157,8 @@ const Main = () => {
                   <h1
                     className="heading md:text-7xl text-4xl uppercase"
                     id="aboutHead"
+                    words-slide-down=""
+                    text-split=""
                   >
                     Here's what i do
                   </h1>

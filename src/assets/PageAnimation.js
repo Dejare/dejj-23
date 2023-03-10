@@ -25,7 +25,7 @@ const PageAnimation = () => {
       let projectCards = gsap.timeline({
         scrollTrigger: {
           trigger: triggerElement,
-          start: "top 100%",
+          start: "top 75%",
           end: "top top",
           scrub: 1,
         },
@@ -84,7 +84,7 @@ const PageAnimation = () => {
       tl.from($(this).find(".char"), {
         opacity: 0,
         yPercent: -120,
-        duration: 0.3,
+        duration: 0.9,
         ease: Power2.easeOut(),
         stagger: { amount: 0.5 },
       });
