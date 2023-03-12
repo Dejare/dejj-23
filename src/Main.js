@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "./assets/styles/main.scss";
 import { HiOutlineMenuAlt4, HiArrowCircleUp } from "react-icons/hi";
 import { TbCornerRightDown } from "react-icons/tb";
@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Nav from "./components/Nav";
 import gnd from "./assets/images/gnd.jpg";
 import musica from "./assets/images/musica.jpg";
-import mallet from './assets/images/malletNFT.jpg'
+import mallet from "./assets/images/malletNFT.jpg";
 import evaluate from "./assets/images/02.jpg";
 import adejare from "./assets/images/06.jpg";
 import NewProjectCard from "./components/NewProjectCard";
@@ -20,24 +20,21 @@ import iconTwo from "./assets/images/iconTwo.svg";
 import iconThree from "./assets/images/iconThree.svg";
 import iconFour from "./assets/images/iconFour.svg";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 const Main = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [Toggle, setToggle] = useState();
 
-
-
   PageAnimation();
 
   return (
     <div>
       <div className="w-screen">
-        <header className="justify-between w-screen">
-          <label htmlFor="logo">Remilekun</label>
+        <header className="w-screen justify-between">
+          <label htmlFor="logo">Adejare™</label>
           <div className="flex flex-row items-center">
-            <button className="px-4 py-2 mr-1 text-sm text-white rounded-full md:px-5 md:py-2 bg-neutral-700 md:mr-5">
+            <button className="md:px-5 md:py-2 py-2 px-4 rounded-full bg-neutral-700 text-white text-sm md:mr-5 mr-1">
               COLOR MODE
             </button>
 
@@ -76,7 +73,7 @@ const Main = () => {
                       letters-slide-down=""
                       text-split=""
                     >
-                      Website Developer & Marketing Expert &nbsp;
+                      Frontend Developer & creative director &nbsp;
                     </div>
                     <div
                       className="inline-block align-top animate-[crawling-line_30s_linear_infinite] mx-8"
@@ -84,21 +81,20 @@ const Main = () => {
                       letters-slide-down=""
                       text-split=""
                     >
-                      Website Developer & Marketing Expert &nbsp;
+                      Frontend Developer & creative director &nbsp;
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* images, card */}
-              <div className="flex flex-col items-center w-screen p-5 md:flex-row">
+              <div className="flex md:flex-row flex-col p-5 w-screen items-center">
                 <div className="md:w-[60vw] w-[98%] md:h-screen h-[80vh] bg-white rounded-xl p-4 ml-5 flex flex-col items-start justify-between md:order-1 order-2">
                   <div>
-                    <h2 className="text-xl font-normal md:text-3xl">
-                      Hey, I'm Remilekun. I help companies achieve measurable
-                      results through strategic digital marketing and website
-                      development that increases revenue, brand equity, and
-                      market share.
+                    <h2 className="md:text-3xl text-xl font-normal">
+                      Hey, I'm Adejare. <br /> I curate immersive experience
+                      with technology and work with people all over the world to
+                      create tailor-made websites and applications
                     </h2>
                   </div>
                   <button className="button rounded-full uppercase flex flex-row items-center border border-[#292929]">
@@ -112,7 +108,7 @@ const Main = () => {
                   <div>
                     <img
                       src={img}
-                      alt="picture OF Remilekun"
+                      alt="picture OF ADEJARE"
                       className="w-full rounded-2xl md:h-screen"
                     />
                   </div>
@@ -123,10 +119,10 @@ const Main = () => {
             <hr className="my-4 border-[#fff7]" />
 
             <div className="mt-8" id="about">
-              <div className="flex flex-col items-start justify-between w-screen p-4 mb-12 text-white md:flex-row">
-                <div className="w-full md:w-2/12">
+              <div className="flex md:flex-row flex-col items-start justify-between p-4 w-screen text-white mb-12">
+                <div className="md:w-2/12 w-full">
                   <h1
-                    className="text-4xl heading md:text-7xl"
+                    className="heading md:text-7xl text-4xl"
                     id="aboutHead"
                     words-slide-down=""
                     text-split=""
@@ -134,20 +130,19 @@ const Main = () => {
                     ABOUT ME
                   </h1>
                 </div>
-                <div className="w-full mt-5 mr-4 text-xl md:w-6/12 body md:text-2xl md:mt-0">
+                <div className="md:w-6/12 w-full body md:text-2xl text-xl mr-4 md:mt-0 mt-5">
                   <p id="abouBody" words-slide-down="" text-split="">
-                    Hello, I'm Remilekun Joseph a results-driven digital
-                    marketing expert and website developer, I specialize in
-                    creating, publishing, and distributing marketing strategies
-                    and functional websites that achieve your business goals. My
-                    focus is to help you increase revenue and profit by
-                    targeting actual prospective customers, outperforming
-                    competitors, and improving brand equity and market share.
-                    With years of experience and expertise in various web
-                    development technologies, I pride myself on delivering
-                    high-quality work that exceeds your expectations.
+                    I'm Adejare Daniels. I am a self-taught Front-end Developer
+                    and school taught computer engineer. I'm currently a student
+                    of the Federal University Of Technology, Akure. <br /> As a
+                    creative developer, I focus on both design, development and
+                    functionality — allowing me to work on projects from concept
+                    until the very moment I hit publish. Unique layouts,
+                    functionality, great typography, clean, reuseable and
+                    readable codebase is what I focus on when working on
+                    websites.
                   </p>
-                  <button className="flex flex-row items-center text-lg text-white uppercase border border-white rounded-full button">
+                  <button className="button rounded-full uppercase flex flex-row items-center text-white border-white border text-lg">
                     <a href="#project" className="flex flex-row items-center">
                       explore my work{" "}
                       <div className="bg-[#292929] text-white rounded-full w-5 h-5 items-center justify-center flex ml-2">
@@ -158,10 +153,10 @@ const Main = () => {
                 </div>
               </div>
               <hr className="my-4 border-[#fff7]" />
-              <div className="flex flex-col items-start justify-between w-screen p-4 mb-12 text-white md:flex-row">
-                <div className="w-full md:w-3/12">
+              <div className="flex md:flex-row flex-col items-start justify-between p-4 w-screen text-white mb-12">
+                <div className="md:w-3/12 w-full">
                   <h1
-                    className="text-4xl uppercase heading md:text-7xl"
+                    className="heading md:text-7xl text-4xl uppercase"
                     id="aboutHead"
                     words-slide-down=""
                     text-split=""
@@ -169,7 +164,7 @@ const Main = () => {
                     Here's what i do
                   </h1>
                 </div>
-                <div className="w-full mt-5 mr-4 text-xl md:w-6/12 body md:text-2xl md:mt-0">
+                <div className="md:w-6/12 w-full body md:text-2xl text-xl mr-4 md:mt-0 mt-5">
                   <div
                     id="w-node-eb47866e-f418-d7c2-890d-5e395350cf10-2dc1d759"
                     class="service-cards"
@@ -187,7 +182,7 @@ const Main = () => {
                             class="service-c_icon"
                           />
                         </div>
-                        <h2 class="heading-small">Website Development</h2>
+                        <h2 class="heading-small">Frontend Development</h2>
                       </div>
                       <div>
                         <p class="service-c_p text-lg">
@@ -215,13 +210,13 @@ const Main = () => {
                             class="service-c_icon"
                           />
                         </div>
-                        <h2 class="heading-small">Digital Marketing</h2>
+                        <h2 class="heading-small">Digital Design</h2>
                       </div>
                       <div>
                         <p class="service-c_p text-lg">
-                          harnesses the power of technology and creativity to
-                          reach and engage with your target audience, driving
-                          measurable results that fuel your business growth.
+                          Designing for the web is not static. It&#x27;s about
+                          interactions, animations, usability, consistency and
+                          so much more.
                         </p>
                         <div class="service-c_buttons">
                           <div class="text-bubble">web design</div>
@@ -243,14 +238,12 @@ const Main = () => {
                             class="service-c_icon"
                           />
                         </div>
-                        <h2 class="heading-small">NFTs</h2>
+                        <h2 class="heading-small">Art Direction</h2>
                       </div>
                       <div>
                         <p class="service-c_p text-lg">
-                          transform digital content into unique, one-of-a-kind
-                          assets that can be owned and traded, unlocking a new
-                          world of possibilities for creators and collectors
-                          alike.
+                          When overlooking a creative process, the overlap
+                          between aesthetics and function has my full attention.
                         </p>
                         <div class="service-c_buttons">
                           <div class="text-bubble">concepting</div>
@@ -272,13 +265,13 @@ const Main = () => {
                             class="service-c_icon"
                           />
                         </div>
-                        <h2 class="heading-small">Graphics design</h2>
+                        <h2 class="heading-small">Interaction Design</h2>
                       </div>
                       <div>
                         <p class="service-c_p text-lg">
-                          use visual storytelling to captivate audiences,
-                          communicate messages, and elevate brands to the next
-                          level with stunning, eye-catching designs.
+                          Have a frontend project already built and need some
+                          help with refining animations and interactions? I got
+                          you.
                         </p>
                         <div class="service-c_buttons">
                           <div class="text-bubble">animations</div>
@@ -294,7 +287,7 @@ const Main = () => {
 
             <div className="mx-6 text-white " id="projects">
               <h1
-                className="text-5xl text-white heading md:text-8xl"
+                className="heading md:text-8xl text-5xl text-white"
                 id="aboutHead"
               >
                 PROJECTS
@@ -304,10 +297,10 @@ const Main = () => {
               <div className="md:mx-12">
                 <NewProjectCard
                   projectClass={"projectOne"}
-                  title="consulting V1.0"
-                  details=" G Gives Consulting move you from surviving to thriving.."
+                  title="Adejare V1.0"
+                  details="The last version of my previous portfolio.."
                   image={adejare}
-                  link="https://www.ggivesconsulting.com/"
+                  link="https://adejarree.vercel.app/"
                   display="none"
                   displayTwo="none"
                 />
@@ -321,11 +314,11 @@ const Main = () => {
                 />
 
                 <NewProjectCard
-                  title="Investing V1.0"
-                  details="passive income via multi-family investments"
+                  title="Evaluate V1.0"
+                  details="An all round intuitive, precise testing systems for students"
                   stackOne="Supabase"
                   image={evaluate}
-                  link="https://www.granitetowersequitygroup.com/"
+                  link="https://evaluattee.vercel.app"
                   displayTwo="none"
                 />
                 <NewProjectCard
@@ -337,12 +330,12 @@ const Main = () => {
                   link="https://musicaa.vercel.app"
                 />
                 <NewProjectCard
-                  title="service v1.0"
-                  details="Take House Cleaning Off Your To-Do List Today"
+                  title="GND Crypto"
+                  details="An online dashboard for cryptocurrency transactions (mock numbers) with state management "
                   stackOne="Redux"
                   stackTwo="API's"
                   image={gnd}
-                  link="https://veracleaners.com/"
+                  link="https://dashboard-dejare.vercel.app"
                 />
               </div>
             </div>
@@ -360,9 +353,11 @@ const Main = () => {
                     Portfolio 2023
                   </p>
                 </div>
-                <p className="hidden md:block text-[#292929] text-sm">joseph</p>
+                <p className="hidden md:block text-[#292929] text-sm">
+                  Adejare
+                </p>
                 <div className="text-center md:text-left mt-5 md:mt-0 text-[#292929]">
-                  Available for roles & full time work
+                  Available for full-time work
                   <br /> March 2023
                 </div>
               </div>
@@ -384,22 +379,22 @@ const Main = () => {
                   />
                 </div>
                 <p className="text-sm ">Drop me an email</p>
-                <a href="mailto:remilekunjoseph7@gmail.com" className="text-xl">
-                  remilekunjoseph7@gmail.com
+                <a href="mailto:inioluwaadesida@gmail.com" className="text-xl">
+                  inioluwaadesida@gmail.com
                 </a>
               </div>
-              <div className="flex flex-col w-full mt-4 md:flex-row md:items-center md:justify-between">
-                <div className="flex flex-col items-center w-1/5 ">
+              <div className="flex md:flex-row flex-col md:items-center md:justify-between w-full mt-4">
+                <div className="flex flex-col w-1/5 items-center ">
                   <p className="hidden md:flex">
                     LAGOS : <span className="animate-pulse">12:00</span>
                   </p>
-                  <p className="hidden md:block">Developed by joseph </p>
+                  <p className="hidden md:block">Developed by Adejare </p>
                 </div>
 
-                <div className="flex flex-row items-center justify-center w-3/5 m-auto md:flex">
+                <div className="flex-row items-center justify-center md:flex m-auto flex w-3/5">
                   <ButtonOne
-                    btnText="Facebook"
-                    link={"https://web.facebook.com/remilekun.joseph.125"}
+                    btnText={"Linkedin"}
+                    link={"https://www.linkedin.com/in/adejarree/"}
                   />
 
                   <ButtonOne
@@ -409,17 +404,19 @@ const Main = () => {
 
                   <ButtonOne
                     btnText="Twitter"
-                    link={"https://https://twitter.com/RemdekJoe"}
+                    link={
+                      "https://twitter.com/Therealnicron?t=if7WE8sL0Lb5S-MNkK7Lrg&s=09"
+                    }
                   />
                 </div>
-                <div className="flex flex-col items-center justify-center mt-5 text-center md:text-left md:w-1/5">
+                <div className="text-center flex flex-col items-center justify-center mt-5 md:text-left md:w-1/5">
                   <button
                     onClick={() => {
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
                     className="flex flex-row items-center "
                   >
-                    <div className="mr-1 md:mr-2">
+                    <div className="md:mr-2 mr-1">
                       <HiArrowCircleUp />
                     </div>{" "}
                     Back to top.
