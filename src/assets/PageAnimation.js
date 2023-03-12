@@ -19,6 +19,8 @@ const PageAnimation = () => {
   //By Timothy Ricks
 
   useEffect(() => {
+   
+
     $(".projects-item").each(function (index) {
       let triggerElement = $(this);
       let targetElement = $(this).prev();
@@ -84,7 +86,7 @@ const PageAnimation = () => {
       tl.from($(this).find(".char"), {
         opacity: 0,
         yPercent: -120,
-        duration: 0.6,
+        duration: 1,
         ease: Power2.easeOut(),
         stagger: { amount: 0.5 },
       });
@@ -158,6 +160,9 @@ const PageAnimation = () => {
             });
       },
     });
+
+
+
   }, []);
 
   return <div></div>;

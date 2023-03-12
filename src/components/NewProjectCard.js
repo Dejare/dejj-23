@@ -16,7 +16,7 @@ const NewProjectCard = ({
 }) => {
   return (
     <div
-      className={`w-10/12 md:h-[90vh] max-h-fit bg-white text-black border-2 border-neutral-600 flex md:flex-row flex-col md:m-auto md:rounded-[32px] rounded-2xl ${projectClass} projects-item md:my-24 my-12`}
+      className={`w-10/12 md:h-[90vh] max-h-fit bg-white text-black border-2 border-neutral-600 flex md:flex-row flex-col md:m-auto md:rounded-[32px] rounded-2xl ${projectClass} projects-item md:my-24 my-12 `}
       id={id}
     >
       <div className="flex flex-col md:justify-between justify-evenly w-4/4 md:w-2/4 md:p-8 p-4">

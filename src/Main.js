@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "./assets/styles/main.scss";
 import { HiOutlineMenuAlt4, HiArrowCircleUp } from "react-icons/hi";
 import { TbCornerRightDown } from "react-icons/tb";
@@ -20,6 +20,7 @@ import iconTwo from "./assets/images/iconTwo.svg";
 import iconThree from "./assets/images/iconThree.svg";
 import iconFour from "./assets/images/iconFour.svg";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Main = () => {
@@ -27,10 +28,11 @@ const Main = () => {
   const [Toggle, setToggle] = useState();
 
 
+
   PageAnimation();
 
   return (
-    <div data-scroll-container>
+    <div >
       <div className="w-screen">
         <header className="w-screen justify-between">
           <label htmlFor="logo">Adejare™</label>
@@ -299,9 +301,9 @@ const Main = () => {
                 <NewProjectCard
                   projectClass={"projectOne"}
                   title="Adejare V1.0"
-                  details="A super-clean award winning websites for an independent art director and web designer currently based in barca"
+                  details="The last version of my previous portfolio.."
                   image={adejare}
-                  link="https://adejare.vercel.app/"
+                  link="https://adejarree.vercel.app/"
                   display="none"
                   displayTwo="none"
                 />
