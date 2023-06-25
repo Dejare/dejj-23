@@ -20,6 +20,7 @@ import iconTwo from "./assets/images/iconTwo.svg";
 import iconThree from "./assets/images/iconThree.svg";
 import iconFour from "./assets/images/iconFour.svg";
 import Clock from "./components/Clock";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -3,7 +3,7 @@ import "./assets/styles/main.scss";
 import Loader from "./components/loader/Loader";
 import Main from "./Main";
 import "./assets/styles/ls.css";
-import img from "./assets/images/deja.jpg";
+import img from "./assets/images/dejj.jpg";
 import gnd from "./assets/images/gnd.jpg";
 import musica from "./assets/images/musica.jpg";
 import mallet from "./assets/images/malletNFT.jpg";
