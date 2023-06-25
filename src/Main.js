@@ -19,6 +19,7 @@ import iconOne from "./assets/images/iconOne.svg";
 import iconTwo from "./assets/images/iconTwo.svg";
 import iconThree from "./assets/images/iconThree.svg";
 import iconFour from "./assets/images/iconFour.svg";
+import Clock from "./components/Clock";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,7 +132,7 @@ const Main = () => {
                   </h1>
                 </div>
                 <div className="md:w-6/12 w-full body md:text-2xl text-xl mr-4 md:mt-0 mt-5">
-                  <p id="abouBody" words-slide-down="" text-split="">
+                  <p id="abouBody">
                     I'm Adejare Daniels. I am a self-taught Front-end Developer
                     and school taught computer engineer. I'm currently a student
                     of the Federal University Of Technology, Akure. <br /> As a
@@ -386,7 +387,10 @@ const Main = () => {
               <div className="flex md:flex-row flex-col md:items-center md:justify-between w-full mt-4">
                 <div className="flex flex-col w-1/5 items-center ">
                   <p className="hidden md:flex">
-                    LAGOS : <span className="animate-pulse">12:00</span>
+                    LAGOS :{" "}
+                    <span className="animate-pulse">
+                      <Clock />
+                    </span>
                   </p>
                   <p className="hidden md:block">Developed by Adejare </p>
                 </div>

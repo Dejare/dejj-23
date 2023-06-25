@@ -3,7 +3,7 @@ import "./assets/styles/main.scss";
 import Loader from "./components/loader/Loader";
 import Main from "./Main";
 import "./assets/styles/ls.css";
-import img from "./assets/images/dejj.jpg";
+import img from "./assets/images/deja.jpg";
 import gnd from "./assets/images/gnd.jpg";
 import musica from "./assets/images/musica.jpg";
 import mallet from "./assets/images/malletNFT.jpg";
@@ -23,7 +23,16 @@ const App = () => {
 
   // First, create an array to hold all the image sources you want to preload
   const images = [
-    gnd, musica, mallet, evaluate, adejare, iconFour, iconOne, iconThree, iconTwo, img
+    gnd,
+    musica,
+    mallet,
+    evaluate,
+    adejare,
+    iconFour,
+    iconOne,
+    iconThree,
+    iconTwo,
+    img,
     // add more images as needed
   ];
 
@@ -41,8 +50,8 @@ const App = () => {
       })
     );
   }
-const startTime = new Date().getTime();
-let counter = 0;
+  const startTime = new Date().getTime();
+  let counter = 0;
   // Call the preloadImages function when your loader screen is shown
   preloadImages(images).then((loadedImages) => {
     const interval = setInterval(() => {
@@ -59,15 +68,15 @@ let counter = 0;
       counter++;
     });
     // All images have been preloaded
-if (counter  = 100 ) {
-  setLoading(false)
-}
+    if ((counter = 100)) {
+      setLoading(false);
+    }
   });
 
   return (
     <div>
       {Loading ? (
-        <Loader LoadingValue={counter}/>
+        <Loader LoadingValue={counter} />
       ) : (
         <>
           <Main />
