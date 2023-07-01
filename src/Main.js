@@ -4,7 +4,7 @@ import { HiOutlineMenuAlt4, HiArrowCircleUp } from "react-icons/hi";
 import { TbCornerRightDown } from "react-icons/tb";
 import { TfiClose } from "react-icons/tfi";
 import img from "./assets/images/dejj.jpg";
-import gsap from "gsap";
+import gsap, { Power4 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Nav from "./components/Nav";
 import gnd from "./assets/images/gnd.jpg";
@@ -26,17 +26,76 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Main = () => {
   const [navOpen, setNavOpen] = useState(false);
+  const [ColorModeVisible, setColorModeVisible] = useState(false);
   const [Toggle, setToggle] = useState();
 
   PageAnimation();
 
+  useEffect(() => {
+    gsap.fromTo(
+      "#colorPicker",
+      {
+        x: 70,
+        zIndex: 1,
+        // opacity: 0,
+        // scale: 0.2,
+      },
+      {
+        x: 0,
+        zIndex: -0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        ease: Power4.easeInOut(),
+      }
+    );
+  });
+
+  const changeColorRed = () => {
+    document.body.style.backgroundColor = "#2d0b04";
+    setColorModeVisible(false);
+  };
+  const changeColorGrey = () => {
+    document.body.style.backgroundColor = "#292929";
+    setColorModeVisible(false);
+  };
+  const changeColorGreen = () => {
+    document.body.style.backgroundColor = "#152a21";
+    setColorModeVisible(false);
+  };
+
   return (
     <div>
       <div className="w-screen">
-        <header className="w-screen justify-between">
+        <header className="justify-between w-screen">
           <label htmlFor="logo">Adejare™</label>
           <div className="flex flex-row items-center">
-            <button className="md:px-5 md:py-2 py-2 px-4 rounded-full bg-neutral-700 text-white text-sm md:mr-5 mr-1">
+            {ColorModeVisible ? (
+              <div
+                id="colorPicker"
+                className="flex items-center justify-center px-4 py-2 mr-1 text-sm text-white rounded-full md:px-5 md:py-2 bg-[#c0c0c010] md:mr-5"
+              >
+                <button
+                  className="px-2 py-2 mx-1 bg-gray-500 rounded-full"
+                  onClick={changeColorGrey}
+                ></button>
+                <button
+                  className="px-2 py-2 mx-1 bg-[#2d0b04] rounded-full"
+                  onClick={changeColorRed}
+                ></button>
+                <button
+                  className="px-2 py-2 mx-1 bg-[#152a21] rounded-full"
+                  onClick={changeColorGreen}
+                ></button>
+              </div>
+            ) : null}
+
+            <button
+              className="px-4 py-2 mr-1 text-sm text-white rounded-full md:px-5 md:py-2 bg-[#c0c0c010] md:mr-5 hove"
+              onClick={() => {
+                setColorModeVisible(!ColorModeVisible);
+              }}
+            >
               COLOR MODE
             </button>
 
@@ -67,7 +126,7 @@ const Main = () => {
             <div>
               {/* hero */}
               <div data-scroll>
-                <div className="relative w-screen   md:h-[60vh] h-[35vh] flex items-center z-[5] text-[#f1f1f1] overflow-hidden">
+                <div className="relative w-screen   md:h-[60vh] h-[35vh] flex items-center z-[5] text-[#ffffffb4] overflow-hidden">
                   <div className="inline-flex whitespace-nowrap crawling-line crawling-line--large font-head md:text-[350px] text-[250px] uppercase heading">
                     <div
                       className="inline-block align-top animate-[crawling-line_30s_linear_infinite]"
@@ -90,10 +149,10 @@ const Main = () => {
               </div>
 
               {/* images, card */}
-              <div className="flex md:flex-row flex-col p-5 w-screen items-center">
+              <div className="flex flex-col items-center w-screen p-5 md:flex-row">
                 <div className="md:w-[60vw] w-[98%] md:h-screen h-[80vh] bg-white rounded-xl p-4 ml-5 flex flex-col items-start justify-between md:order-1 order-2">
                   <div>
-                    <h2 className="md:text-3xl text-xl font-normal">
+                    <h2 className="text-xl font-normal md:text-3xl">
                       Hey, I'm Adejare. <br /> I curate immersive experience
                       with technology and work with people all over the world to
                       create tailor-made websites and applications
@@ -121,10 +180,10 @@ const Main = () => {
             <hr className="my-4 border-[#fff7]" />
 
             <div className="mt-8" id="about">
-              <div className="flex md:flex-row flex-col items-start justify-between p-4 w-screen text-white mb-12">
-                <div className="md:w-2/12 w-full">
+              <div className="flex flex-col items-start justify-between w-screen p-4 mb-12 text-white md:flex-row">
+                <div className="w-full md:w-2/12">
                   <h1
-                    className="heading md:text-7xl text-4xl"
+                    className="text-4xl heading md:text-7xl"
                     id="aboutHead"
                     words-slide-down=""
                     text-split=""
@@ -132,7 +191,7 @@ const Main = () => {
                     ABOUT ME
                   </h1>
                 </div>
-                <div className="md:w-6/12 w-full body md:text-2xl text-xl mr-4 md:mt-0 mt-5">
+                <div className="w-full mt-5 mr-4 text-xl md:w-6/12 body md:text-2xl md:mt-0">
                   <p id="abouBody">
                     I'm Adejare Daniels. I am a self-taught Front-end Developer
                     and school taught computer engineer. I'm currently a student
@@ -144,21 +203,13 @@ const Main = () => {
                     readable codebase is what I focus on when working on
                     websites.
                   </p>
-                  <button className="button rounded-full uppercase flex flex-row items-center text-white border-white border text-lg">
-                    <a href="#project" className="flex flex-row items-center">
-                      explore my work{" "}
-                      <div className="bg-[#292929] text-white rounded-full w-5 h-5 items-center justify-center flex ml-2">
-                        <TbCornerRightDown />
-                      </div>
-                    </a>
-                  </button>
                 </div>
               </div>
               <hr className="my-4 border-[#fff7]" />
-              <div className="flex md:flex-row flex-col items-start justify-between p-4 w-screen text-white mb-12">
-                <div className="md:w-3/12 w-full">
+              <div className="flex flex-col items-start justify-between w-screen p-4 mb-12 text-white md:flex-row">
+                <div className="w-full md:w-3/12">
                   <h1
-                    className="heading md:text-7xl text-4xl uppercase"
+                    className="text-4xl uppercase heading md:text-7xl"
                     id="aboutHead"
                     words-slide-down=""
                     text-split=""
@@ -166,7 +217,7 @@ const Main = () => {
                     Here's what i do
                   </h1>
                 </div>
-                <div className="md:w-6/12 w-full body md:text-2xl text-xl mr-4 md:mt-0 mt-5">
+                <div className="w-full mt-5 mr-4 text-xl md:w-6/12 body md:text-2xl md:mt-0">
                   <div
                     id="w-node-eb47866e-f418-d7c2-890d-5e395350cf10-2dc1d759"
                     class="service-cards"
@@ -283,13 +334,21 @@ const Main = () => {
                       <div class="service-c_bg"></div>
                     </div>
                   </div>
+                  <button className="flex flex-row items-center text-lg text-white uppercase border border-white rounded-full button">
+                    <a href="#project" className="flex flex-row items-center">
+                      explore my work{" "}
+                      <div className="bg-[#292929] text-white rounded-full w-5 h-5 items-center justify-center flex ml-2">
+                        <TbCornerRightDown />
+                      </div>
+                    </a>
+                  </button>
                 </div>
               </div>
             </div>
 
             <div className="mx-6 text-white " id="projects">
               <h1
-                className="heading md:text-8xl text-5xl text-white"
+                className="text-5xl text-white heading md:text-8xl"
                 id="aboutHead"
               >
                 PROJECTS
@@ -385,8 +444,8 @@ const Main = () => {
                   inioluwaadesida@gmail.com
                 </a>
               </div>
-              <div className="flex md:flex-row flex-col md:items-center md:justify-between w-full mt-4">
-                <div className="flex flex-col w-1/5 items-center ">
+              <div className="flex flex-col w-full mt-4 md:flex-row md:items-center md:justify-between">
+                <div className="flex flex-col items-center w-1/5 ">
                   <p className="hidden md:flex">
                     LAGOS :{" "}
                     <span className="animate-pulse">
@@ -396,7 +455,7 @@ const Main = () => {
                   <p className="hidden md:block">Developed by Adejare </p>
                 </div>
 
-                <div className="flex-row items-center justify-center md:flex m-auto flex w-3/5">
+                <div className="flex flex-row items-center justify-center w-3/5 m-auto md:flex">
                   <ButtonOne
                     btnText={"Linkedin"}
                     link={"https://www.linkedin.com/in/adejarree/"}
@@ -414,14 +473,14 @@ const Main = () => {
                     }
                   />
                 </div>
-                <div className="text-center flex flex-col items-center justify-center mt-5 md:text-left md:w-1/5">
+                <div className="flex flex-col items-center justify-center mt-5 text-center md:text-left md:w-1/5">
                   <button
                     onClick={() => {
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
                     className="flex flex-row items-center "
                   >
-                    <div className="md:mr-2 mr-1">
+                    <div className="mr-1 md:mr-2">
                       <HiArrowCircleUp />
                     </div>{" "}
                     Back to top.

@@ -1,123 +1,123 @@
 // mixins
 @mixin center {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 //
 
 header {
-	color: white;
-	display: flex;
-	flex-direction: row;
-	width: 100vw;
-	padding: 1rem 2rem;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  padding: 1rem 2rem;
 
-	align-items: center;
-	@media screen and (max-width: 768px) {
-		padding: 1rem 0.6rem;
-	}
-	nav {
-		width: 50px;
-		height: 50px;
-		background: white;
-		color: black;
-		border-radius: 50%;
-		@include center;
-	}
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    padding: 1rem 0.6rem;
+  }
+  nav {
+    width: 50px;
+    height: 50px;
+    background: white;
+    color: black;
+    border-radius: 50%;
+    @include center;
+  }
 }
 
 // animations
 .animate-\[crawling-line_10s_linear_infinite\] {
-	-webkit-animation: crawling-line 10s linear infinite;
-	animation: crawling-line 10s linear infinite;
+  -webkit-animation: crawling-line 10s linear infinite;
+  animation: crawling-line 10s linear infinite;
 }
 
 @keyframes crawling-line {
-	0% {
-		transform: translateZ(0);
-	}
-	to {
-		transform: translate3d(-100%, 0, 0);
-	}
+  0% {
+    transform: translateZ(0);
+  }
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
 }
 .animate-\[crawling-line_10s_linear_infinite\] {
-	-webkit-animation: crawling-line 10s linear infinite;
-	animation: crawling-line 10s linear infinite;
+  -webkit-animation: crawling-line 10s linear infinite;
+  animation: crawling-line 10s linear infinite;
 }
 
 // btns
 
 .button {
-	padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
 
-	margin: 1rem 0rem;
+  margin: 1rem 0rem;
 }
 
 .stack,
 .btn_one_social {
-	border: 1px solid #292929;
-	padding: 0.05rem 1rem;
-	color: black;
-	border-radius: 25px;
-	margin-right: 0.2rem;
-	font-size: 10px;
-	text-transform: uppercase;
+  border: 1px solid #292929;
+  padding: 0.05rem 1rem;
+  color: black;
+  border-radius: 25px;
+  margin-right: 0.2rem;
+  font-size: 10px;
+  text-transform: uppercase;
 }
 
 .navLink {
-	li {
-		margin: 0.5rem 0rem;
-		display: flex;
-		align-items: flex-end;
-		justify-content: space-between;
-		color: #c9c9c9;
-		flex-direction: row;
-		&:hover {
-			a {
-				color: white;
-				transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-				transform: translateX(30px);
-				@media screen and (max-width: 768px) {
-					transform: translateX(10px);
-				}
-			}
-			// transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
-		}
-		p {
-			font-family: "Body";
-			font-size: 20px;
-			margin-bottom: 5px;
-		}
-		a {
-			&:hover {
-				// transform: translateX(40px);
-				transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
-				hr {
-					border-top: 0.5px solid #fff;
-					transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
-				}
-			}
-		}
-	}
-	hr {
-		border-top: 0.5px solid #7c7c7c;
-		margin-bottom: 1rem;
-	}
-	.icon {
-		display: none;
-	}
+  li {
+    margin: 0.5rem 0rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    color: #c9c9c9;
+    flex-direction: row;
+    &:hover {
+      a {
+        color: white;
+        transition: 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translateX(30px);
+        @media screen and (max-width: 768px) {
+          transform: translateX(10px);
+        }
+      }
+      // transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    p {
+      font-family: "Body";
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    a {
+      &:hover {
+        // transform: translateX(40px);
+        transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
+        hr {
+          border-top: 0.5px solid #fff;
+          transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+      }
+    }
+  }
+  hr {
+    border-top: 0.5px solid #7c7c7c;
+    margin-bottom: 1rem;
+  }
+  .icon {
+    display: none;
+  }
 }
 
 .navLink li:hover p {
-	transform: translate3d(20px, -40px, 60px);
-	transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
-	@media screen and (max-width: 768px) {
-		transform: translate3d(10px, -20px, 30px);
-	}
+  transform: translate3d(20px, -40px, 60px);
+  transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
+  @media screen and (max-width: 768px) {
+    transform: translate3d(10px, -20px, 30px);
+  }
 }
 .navLink li:hover .icon {
-	display: flex;
-	transition: 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  display: flex;
+  transition: 2s cubic-bezier(0.215, 0.61, 0.355, 1);
 }

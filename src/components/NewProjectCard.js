@@ -19,25 +19,25 @@ const NewProjectCard = ({
       className={`w-10/12 md:h-[90vh] max-h-fit bg-white text-black border-2 border-neutral-600 flex md:flex-row flex-col md:m-auto md:rounded-[32px] rounded-2xl ${projectClass} projects-item md:my-24 my-12 `}
       id={id}
     >
-      <div className="flex flex-col md:justify-between justify-evenly w-4/4 md:w-2/4 md:p-8 p-4">
+      <div className="flex flex-col p-4 md:justify-between justify-evenly w-4/4 md:w-2/4 md:p-8">
         <div className="w-full">
-          <h1 className="heading md:text-8xl text-8xl uppercase">{title}</h1>
-          <div className="flex flex-row  flex-wrap items-center md:w-2/4 mt-1 md:mt-0">
-            <div className="stack mt-1">React</div>
-            <div className="stack mt-1">Tailwind</div>
-            <div className="stack mt-1">Gsap</div>
-            <div className="stack mt-1" style={{ display: `${display}` }}>
+          <h1 className="uppercase heading md:text-8xl text-8xl">{title}</h1>
+          <div className="flex flex-row flex-wrap items-center mt-1 md:w-2/4 md:mt-0">
+            <div className="mt-1 stack">React</div>
+            <div className="mt-1 stack">Tailwind</div>
+            <div className="mt-1 stack">Gsap</div>
+            <div className="mt-1 stack" style={{ display: `${display}` }}>
               {stackOne}
             </div>
             <div
-              className="stack mt-1 md:mt-1"
+              className="mt-1 stack md:mt-1"
               style={{ display: `${displayTwo}` }}
             >
               {stackTwo}
             </div>
           </div>
         </div>
-        <div className="md:w-2/4 mt-12 md:mt-0">
+        <div className="mt-12 md:w-2/4 md:mt-0">
           <p>{details}</p>
 
           <div className="mt-5">
@@ -61,12 +61,12 @@ const NewProjectCard = ({
         </div>
       </div>
 
-      <div className="w-4/4 md:w-2/4 h-2/4 md:h-full  md:object-cover mt-12 md:mt-0 relative ">
+      <div className="relative mt-12 w-4/4 md:w-2/4 h-2/4 md:h-full md:object-cover md:mt-0 rounded-2xl">
         {" "}
         <img
           src={image}
           alt="Project Image"
-          className="h-full w-full  object-cover md:rounded-r-[30px] rounded-b-2xl"
+          className="object-cover w-full h-full p2 rounded-2xl"
         />
       </div>
     </div>

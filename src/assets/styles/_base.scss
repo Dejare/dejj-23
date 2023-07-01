@@ -13,7 +13,7 @@ body {
 }
 ::-webkit-scrollbar {
   width: 5px; /* width of the scrollbar */
-background: transparent;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -36,10 +36,12 @@ button {
   position: -webkit-sticky;
   position: sticky;
   top: 2rem;
-  width: 100%;
+  width: 90%;
   max-height: 90rem;
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 }
-
 
 #aboutHead,
 #aboutBody,
@@ -120,7 +122,7 @@ button {
   grid-column-gap: 5em;
   grid-row-gap: 5em;
   border-radius: 0.5rem;
-  background-color: #343434;
+  background-color: #c0c0c010;
   @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -206,5 +208,15 @@ button {
   // line-height: -11%;
   @media screen and (max-width: 768px) {
     margin-top: 2rem;
+  }
+}
+
+.colorModeBtn {
+  flex-direction: row;
+  transition-duration: 1s;
+  &:hover {
+    .colorPicker {
+      display: flex;
+    }
   }
 }

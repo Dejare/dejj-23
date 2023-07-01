@@ -1,1 +1,17 @@
-*{margin:0;padding:0;box-sizing:border-box}html,body{background:#292929;font-family:"Body";overflow-x:hidden}.heading{font-family:"Heading"}.body{font-family:"Body"}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  background: #000;
+  font-family: "Body";
+  overflow-x: hidden;
+}
+.heading {
+  font-family: "Heading";
+}
+.body {
+  font-family: "Body";
+}

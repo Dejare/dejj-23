@@ -1,4 +1,4 @@
-import gsap, { Power1, Power2, Power3 } from "gsap";
+import gsap, { Power1, Power2, Power3, Power4 } from "gsap";
 import SplitType from "split-type";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import $ from "jquery";
@@ -19,7 +19,21 @@ const PageAnimation = () => {
   //By Timothy Ricks
 
   useEffect(() => {
-   
+    gsap.fromTo(
+      "#colorPicker",
+      {
+        y: -30,
+        opacity: 0,
+        scale: 0.2,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: Power4.easeInOut(),
+      }
+    );
 
     $(".projects-item").each(function (index) {
       let triggerElement = $(this);
@@ -105,33 +119,34 @@ const PageAnimation = () => {
       createScrollTrigger($(this), tl);
     });
 
-
-      $("[bg-expand]").each(function (index) {
-        let tl = gsap.timeline({ paused: true });
-        // tl.from($(this).find(".char"), {
-        //   opacity: 0,
-        //   yPercent: -100,
-        //   duration: 0.5,
-        //   ease: Power2.easeOut(),
-        //   stagger: { amount: 0.5 },
-        // });
-        tl.fromTo($(this), {
+    $("[bg-expand]").each(function (index) {
+      let tl = gsap.timeline({ paused: true });
+      // tl.from($(this).find(".char"), {
+      //   opacity: 0,
+      //   yPercent: -100,
+      //   duration: 0.5,
+      //   ease: Power2.easeOut(),
+      //   stagger: { amount: 0.5 },
+      // });
+      tl.fromTo(
+        $(this),
+        {
           css: {
-            width: "100vw"
-          }, 
-          duration: 1,
-          ease: Power2.easeOut(),
-        }, {
-          css: {
-            width: "93vw"
-
+            width: "100vw",
           },
           duration: 1,
           ease: Power2.easeOut(),
-        })
-        createScrollTrigger($(this), tl);
-      });
-
+        },
+        {
+          css: {
+            width: "93vw",
+          },
+          duration: 1,
+          ease: Power2.easeOut(),
+        }
+      );
+      createScrollTrigger($(this), tl);
+    });
 
     // Avoid flash of unstyled content
     gsap.set("[text-split]", { opacity: 1 });
@@ -146,26 +161,21 @@ const PageAnimation = () => {
         let clampedDuration = gsap.utils.clamp(0.1, 0.9, duration);
         let tl = gsap.timeline();
         let tlTwo = gsap.timeline();
-          tlTwo
-            .to(".footer-emoji", {
-              rotate: amount + "deg",
-              ease: "none",
-              duration: 0.2,
-              overwrite: true,
-            })
-            .to(".footer-emoji", {
-              rotate: "0deg",
-              ease: "power1",
-              duration: 0.4,
-            });
+        tlTwo
+          .to(".footer-emoji", {
+            rotate: amount + "deg",
+            ease: "none",
+            duration: 0.2,
+            overwrite: true,
+          })
+          .to(".footer-emoji", {
+            rotate: "0deg",
+            ease: "power1",
+            duration: 0.4,
+          });
       },
     });
-
-
-
   }, []);
-
-  return <div></div>;
 };
 
 export default PageAnimation;
