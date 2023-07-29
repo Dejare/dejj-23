@@ -68,9 +68,9 @@ function Nav({ closeNav }) {
   const random = Math.floor(Math.random() * 10) + 1;
 
   return (
-    <div className="w-screen h-screen z-[1000] fixed">
+    <div className="w-screen h-screen">
       <div
-        className=" w-11/12 h-[95vh] flex flex-col m-auto rounded-3xl md:p-12 p-4"
+        className=" w-11/12 h-[95vh] flex flex-col m-auto rounded-3xl md:p-12 p-4 bg-[#c0c0c010]"
         ref={bg}
         id="bg"
       >
@@ -78,7 +78,7 @@ function Nav({ closeNav }) {
           <ul className="text-white uppercase heading text-8xl navLink">
             <li id="li" onClick={closeNav}>
               <div className="flex flex-row items-center">
-                <TfiAngleDoubleRight size={20} className="mr-3 icon" />
+                <TfiAngleDoubleRight size={20} className="mr-3 icon" />2
                 <a href="/">Home </a>
               </div>
               <p>01</p>

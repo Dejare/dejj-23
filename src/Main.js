@@ -220,118 +220,118 @@ const Main = () => {
                 <div className="w-full mt-5 mr-4 text-xl md:w-6/12 body md:text-2xl md:mt-0">
                   <div
                     id="w-node-eb47866e-f418-d7c2-890d-5e395350cf10-2dc1d759"
-                    class="service-cards"
+                    className="service-cards"
                   >
                     <div
                       id="w-node-a0908745-6970-8cec-49ed-c7bfd166c501-2dc1d759"
-                      class="service-card"
+                      className="service-card"
                     >
                       <div>
-                        <div class="service-c_icon-w">
+                        <div className="service-c_icon-w">
                           <img
                             src={iconOne}
                             loading="lazy"
                             alt=""
-                            class="service-c_icon"
+                            className="service-c_icon"
                           />
                         </div>
-                        <h2 class="heading-small">Frontend Development</h2>
+                        <h2 className="heading-small">Frontend Development</h2>
                       </div>
                       <div>
-                        <p class="service-c_p text-lg">
+                        <p className="service-c_p text-lg">
                           I curate immersive web experience&#x27;s with various
                           technologies, The one you&#x27;re on right now, for
                           example, is built in REACT too.
                         </p>
-                        <div class="service-c_buttons">
-                          <div class="text-bubble">react</div>
-                          <div class="text-bubble">custom code</div>
+                        <div className="service-c_buttons">
+                          <div className="text-bubble">react</div>
+                          <div className="text-bubble">custom code</div>
                         </div>
                       </div>
-                      <div class="service-c_bg"></div>
+                      <div className="service-c_bg"></div>
                     </div>
                     <div
                       id="w-node-_3c0064e8-6f78-db31-4761-a1876f59d8d3-2dc1d759"
-                      class="service-card"
+                      className="service-card"
                     >
                       <div>
-                        <div class="service-c_icon-w">
+                        <div className="service-c_icon-w">
                           <img
                             src={iconTwo}
                             loading="lazy"
                             alt=""
-                            class="service-c_icon"
+                            className="service-c_icon"
                           />
                         </div>
-                        <h2 class="heading-small">Digital Design</h2>
+                        <h2 className="heading-small">Digital Design</h2>
                       </div>
                       <div>
-                        <p class="service-c_p text-lg">
+                        <p className="service-c_p text-lg">
                           Designing for the web is not static. It&#x27;s about
                           interactions, animations, usability, consistency and
                           so much more.
                         </p>
-                        <div class="service-c_buttons">
-                          <div class="text-bubble">web design</div>
-                          <div class="text-bubble">SCSS</div>
+                        <div className="service-c_buttons">
+                          <div className="text-bubble">web design</div>
+                          <div className="text-bubble">SCSS</div>
                         </div>
                       </div>
-                      <div class="service-c_bg"></div>
+                      <div className="service-c_bg"></div>
                     </div>
                     <div
                       id="w-node-ed0f781a-0a60-4506-1940-e568d2a7ab81-2dc1d759"
-                      class="service-card"
+                      className="service-card"
                     >
                       <div>
-                        <div class="service-c_icon-w">
+                        <div className="service-c_icon-w">
                           <img
                             src={iconThree}
                             loading="lazy"
                             alt=""
-                            class="service-c_icon"
+                            className="service-c_icon"
                           />
                         </div>
-                        <h2 class="heading-small">Art Direction</h2>
+                        <h2 className="heading-small">Art Direction</h2>
                       </div>
                       <div>
-                        <p class="service-c_p text-lg">
+                        <p className="service-c_p text-lg">
                           When overlooking a creative process, the overlap
                           between aesthetics and function has my full attention.
                         </p>
-                        <div class="service-c_buttons">
-                          <div class="text-bubble">concepting</div>
-                          <div class="text-bubble">art direction</div>
+                        <div className="service-c_buttons">
+                          <div className="text-bubble">concepting</div>
+                          <div className="text-bubble">art direction</div>
                         </div>
                       </div>
-                      <div class="service-c_bg"></div>
+                      <div className="service-c_bg"></div>
                     </div>
                     <div
                       id="w-node-eb2f5a02-521f-6de1-d114-63516e5b5e77-2dc1d759"
-                      class="service-card"
+                      className="service-card"
                     >
                       <div>
-                        <div class="service-c_icon-w">
+                        <div className="service-c_icon-w">
                           <img
                             src={iconFour}
                             loading="lazy"
                             alt=""
-                            class="service-c_icon"
+                            className="service-c_icon"
                           />
                         </div>
-                        <h2 class="heading-small">Interaction Design</h2>
+                        <h2 className="heading-small">Interaction Design</h2>
                       </div>
                       <div>
-                        <p class="service-c_p text-lg">
+                        <p className="service-c_p text-lg">
                           Have a frontend project already built and need some
                           help with refining animations and interactions? I got
                           you.
                         </p>
-                        <div class="service-c_buttons">
-                          <div class="text-bubble">animations</div>
-                          <div class="text-bubble">interactions</div>
+                        <div className="service-c_buttons">
+                          <div className="text-bubble">animations</div>
+                          <div className="text-bubble">interactions</div>
                         </div>
                       </div>
-                      <div class="service-c_bg"></div>
+                      <div className="service-c_bg"></div>
                     </div>
                   </div>
                   <button className="flex flex-row items-center text-lg text-white uppercase border border-white rounded-full button">
@@ -357,30 +357,12 @@ const Main = () => {
               <div id="project" className="my-20"></div>
               <div className="md:mx-12">
                 <NewProjectCard
-                  projectClass={"projectOne"}
-                  title="Adejare V1.0"
-                  details="The last version of my previous portfolio.."
-                  image={adejare}
-                  link="https://adejarree.vercel.app/"
-                  display="none"
-                  displayTwo="none"
-                />
-                <NewProjectCard
                   title="Mallet!"
                   details="A simple landing page for an NFT trading organization"
                   stackOne="Framer"
                   stackTwo="Null"
                   image={mallet}
                   link="https://mallet.vercel.app/"
-                />
-
-                <NewProjectCard
-                  title="Evaluate V1.0"
-                  details="An all round intuitive, precise testing systems for students"
-                  stackOne="Supabase"
-                  image={evaluate}
-                  link="https://evaluattee.vercel.app"
-                  displayTwo="none"
                 />
                 <NewProjectCard
                   title="Musicaa V1.0"
@@ -397,6 +379,24 @@ const Main = () => {
                   stackTwo="API's"
                   image={gnd}
                   link="https://dashboard-dejare.vercel.app"
+                />
+                <NewProjectCard
+                  title="Evaluate V1.0"
+                  details="An all round intuitive, precise testing systems for students"
+                  stackOne="Supabase"
+                  image={evaluate}
+                  link="https://evaluattee.vercel.app"
+                  displayTwo="none"
+                />
+
+                <NewProjectCard
+                  projectclassName={"projectOne"}
+                  title="Adejare V1.0"
+                  details="The last version of my previous portfolio.."
+                  image={adejare}
+                  link="https://adejarree.vercel.app/"
+                  display="none"
+                  displayTwo="none"
                 />
               </div>
             </div>
@@ -436,7 +436,7 @@ const Main = () => {
                     src="https://assets.website-files.com/6017e817edf32734686c1b92/6378f8ddab34502e20fad52d_emoji.png"
                     loading="lazy"
                     alt="Peace hand emoji"
-                    class="footer-emoji"
+                    className="footer-emoji"
                   />
                 </div>
                 <p className="text-sm ">Drop me an email</p>
