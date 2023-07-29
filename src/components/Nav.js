@@ -78,7 +78,7 @@ function Nav({ closeNav }) {
           <ul className="text-white uppercase heading text-8xl navLink">
             <li id="li" onClick={closeNav}>
               <div className="flex flex-row items-center">
-                <TfiAngleDoubleRight size={20} className="mr-3 icon" />2
+                <TfiAngleDoubleRight size={20} className="mr-3 icon" />
                 <a href="/">Home </a>
               </div>
               <p>01</p>
