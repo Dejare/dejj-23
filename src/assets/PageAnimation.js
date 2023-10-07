@@ -16,24 +16,29 @@ const PageAnimation = () => {
   const head = new SplitType("#servicesHead");
   const body = new SplitType("#servicesBody");
 
-  //By Timothy Ricks
+
+
 
   useEffect(() => {
+
     gsap.fromTo(
       "#colorPicker",
       {
-        y: -30,
-        opacity: 0,
-        scale: 0.2,
+        x: 70,
+        zIndex: 1,
+        // opacity: 0,
+        // scale: 0.2,
       },
       {
-        y: 0,
+        x: 0,
+        zIndex: -0,
         opacity: 1,
         scale: 1,
-        duration: 1,
+        duration: 0.3,
         ease: Power4.easeInOut(),
       }
     );
+
 
     $(".projects-item").each(function (index) {
       let triggerElement = $(this);
@@ -94,13 +99,33 @@ const PageAnimation = () => {
         onEnter: () => timeline.play(),
       });
     }
+    gsap.fromTo("#header", {
+      opacity: 1,
+      y: -100
+    }, {
+      opacity: 1,
+      duration: 1,
+      y: 0,
+      ease: Power3.easeIn()
+    })
 
+    gsap.fromTo("#firstCard", {
+      opacity: 1,
+      y: 1000
+    }, {
+      opacity: 1,
+      duration: 1,
+      delay: 2,
+      y: 0,
+      ease: Power3.easeIn()
+    })
     $("[letters-slide-down]").each(function (index) {
       let tl = gsap.timeline({ paused: true });
       tl.from($(this).find(".char"), {
         opacity: 0,
         yPercent: -120,
         duration: 1,
+        delay: 1,
         ease: Power2.easeOut(),
         stagger: { amount: 0.5 },
       });

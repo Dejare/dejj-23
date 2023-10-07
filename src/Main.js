@@ -21,6 +21,7 @@ import iconThree from "./assets/images/iconThree.svg";
 import iconFour from "./assets/images/iconFour.svg";
 import Clock from "./components/Clock";
 import { useEffect } from "react";
+import HeropageAnimation from "./assets/HeropageAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,7 +31,7 @@ const Main = () => {
   const [Toggle, setToggle] = useState();
 
   PageAnimation();
-
+// HeropageAnimation()
   useEffect(() => {
     gsap.fromTo(
       "#colorPicker",
@@ -64,10 +65,13 @@ const Main = () => {
     setColorModeVisible(false);
   };
 
+
   return (
     <div>
       <div className="w-screen">
-        <header className="justify-between w-screen">
+        <div className="flex m-auto items-center justify-center m-20">
+        <div className="flex items-center justify-center backdrop-blur-xl m-auto fixed z-[10000000000000000] m-10">
+        <header className="justify-between md:w-[60vw] bg-[#c0c0c010] rounded-xl border border-[0.2] border-[#ababab] p-5" id="header">
           <label htmlFor="logo">Adejare™</label>
           <div className="flex flex-row items-center">
             {ColorModeVisible ? (
@@ -115,7 +119,8 @@ const Main = () => {
             </nav>
           </div>
         </header>
-
+        </div>
+        </div>
         {/* section */}
         {navOpen ? (
           <>
@@ -129,18 +134,20 @@ const Main = () => {
                 <div className="relative w-screen   md:h-[60vh] h-[35vh] flex items-center z-[5] text-[#ffffffb4] overflow-hidden">
                   <div className="inline-flex whitespace-nowrap crawling-line crawling-line--large font-head md:text-[350px] text-[250px] uppercase heading">
                     <div
-                      className="inline-block align-top animate-[crawling-line_30s_linear_infinite]"
+                      className="inline-block align-top animate-[crawling-line_30s_linear_infinite] "
                       data-line="0"
                       letters-slide-down=""
                       text-split=""
+                      id="intro"
                     >
                       Frontend Developer & creative director &nbsp;
                     </div>
                     <div
-                      className="inline-block align-top animate-[crawling-line_30s_linear_infinite] mx-8"
+                      className="inline-block align-top animate-[crawling-line_30s_linear_infinite] mx-8 "
                       data-line="1"
                       letters-slide-down=""
                       text-split=""
+                      id="intro"
                     >
                       Frontend Developer & creative director &nbsp;
                     </div>
@@ -149,7 +156,7 @@ const Main = () => {
               </div>
 
               {/* images, card */}
-              <div className="flex flex-col items-center w-screen p-5 md:flex-row">
+              <div className="flex flex-col items-center w-screen p-5 md:flex-row" id="firstCard">
                 <div className="md:w-[60vw] w-[98%] md:h-screen h-[80vh] bg-white rounded-xl p-4 ml-5 flex flex-col items-start justify-between md:order-1 order-2">
                   <div>
                     <h2 className="text-xl font-normal md:text-3xl">

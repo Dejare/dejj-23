@@ -1,0 +1,29 @@
+import gsap, { Power1, Power2, Power3, Power4 } from "gsap";
+import SplitType from "split-type";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import $ from "jquery";
+import Observer from "gsap/Observer";
+import { useEffect, useRef } from "react";
+
+import React from "react";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const heropageAnimation = () => {
+    const timeline = useRef()
+    useEffect(()=> {
+timeline.current = gsap.timeline()
+timeline.current
+.from("#intro".find(".char"), {
+    opacity: 0,
+    yPercent: -120,
+    duration: 1,
+    ease: Power2.easeOut(),
+    stagger: { amount: 0.5 },
+  });
+    }, [])
+}
+
+export default HeropageAnimation;
+
+// window.addEventListener("DOMContentLoaded", (event) => {});

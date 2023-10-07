@@ -6,6 +6,7 @@ import "../assets/styles/ls.css";
 function Nav({ closeNav }) {
   const bg = useRef();
   const tl = useRef();
+  const line = useRef()
 
   useEffect(() => {
     tl.current = gsap.timeline();
@@ -23,19 +24,37 @@ function Nav({ closeNav }) {
           ease: Power1.easeIn(),
         }
       )
+   
+
       .fromTo(
         "#li",
         {
-          y: 100,
+          y: -100,
           opacity: 0,
         },
         {
           y: 0,
           opacity: 1,
-          stagger: 0.1,
+          stagger: 0.15,
           ease: Power2.easeIn(),
-        }
+        },
       )
+      .fromTo(
+        "#line",
+        {
+          width: 0,
+          opacity: 0,
+          backgroundColor: "#7c7c7c"
+        },
+        {
+         width: "100%",
+          opacity: 1,
+          stagger: 0.15,
+          backgroundColor: "white",
+          ease: Power2.easeIn(),
+        }, "-=1"
+      )
+      
       .fromTo(
         "#status",
         {
@@ -48,7 +67,7 @@ function Nav({ closeNav }) {
           duration: 0.4,
           ease: Power4.easeInOut(),
         }
-      );
+      )
   }, []);
   const reverseAnim = () => {
     tl.current.reverse();
@@ -83,7 +102,7 @@ function Nav({ closeNav }) {
               </div>
               <p>01</p>
             </li>
-            <hr className="w-full" />
+            <hr className="w-full"  id="line"/>
             <li id="li" onClick={closeNav}>
               <div className="flex flex-row items-center">
                 <TfiAngleDoubleRight size={20} className="mr-3 icon" />
@@ -92,7 +111,7 @@ function Nav({ closeNav }) {
 
               <p>02</p>
             </li>
-            <hr className="w-full" />
+            <hr className="w-full"  id="line"/>
             <li id="li" onClick={closeNav}>
               <div className="flex flex-row items-center">
                 <TfiAngleDoubleRight size={20} className="mr-3 icon" />
@@ -100,7 +119,7 @@ function Nav({ closeNav }) {
               </div>
               <p>03</p>
             </li>
-            <hr className="w-full" />
+            <hr className="w-full" id="line" />
             <li id="li" onClick={closeNav}>
               <div className="flex flex-row items-center">
                 <TfiAngleDoubleRight size={20} className="mr-3 icon" />
@@ -109,7 +128,7 @@ function Nav({ closeNav }) {
 
               <p>04</p>
             </li>
-            <hr className="w-full" />
+            <hr className="w-full"  id="line"/>
           </ul>
         </nav>
         <div
