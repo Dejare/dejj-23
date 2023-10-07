@@ -69,8 +69,7 @@ const Main = () => {
   return (
     <div>
       <div className="w-screen">
-        <div className="flex m-auto items-center justify-center m-20">
-        <div className="flex items-center justify-center backdrop-blur-xl m-auto fixed z-[10000000000000000] m-10">
+        <div className="flex items-center justify-center backdrop-blur-xl m-auto z-[10000000000000000] m-5">
         <header className="justify-between md:w-[60vw] bg-[#c0c0c010] rounded-xl border border-[0.2] border-[#ababab] p-5" id="header">
           <label htmlFor="logo">Adejare™</label>
           <div className="flex flex-row items-center">
@@ -120,7 +119,6 @@ const Main = () => {
           </div>
         </header>
         </div>
-        </div>
         {/* section */}
         {navOpen ? (
           <>
@@ -128,10 +126,10 @@ const Main = () => {
           </>
         ) : (
           <>
-            <div>
+            <div >
               {/* hero */}
               <div data-scroll>
-                <div className="relative w-screen   md:h-[60vh] h-[35vh] flex items-center z-[5] text-[#ffffffb4] overflow-hidden">
+                <div className="relative w-screen  mt-0  md:h-[60vh] h-[35vh] flex items-center z-[5] text-[#ffffffb4] overflow-hidden">
                   <div className="inline-flex whitespace-nowrap crawling-line crawling-line--large font-head md:text-[350px] text-[250px] uppercase heading">
                     <div
                       className="inline-block align-top animate-[crawling-line_30s_linear_infinite] "
@@ -426,7 +424,7 @@ const Main = () => {
                 </p>
                 <div className="text-center md:text-left mt-5 md:mt-0 text-[#292929]">
                   Available for full-time work
-                  <br /> March 2023
+                  <br /> October 2023
                 </div>
               </div>
               <div className="text-center">
