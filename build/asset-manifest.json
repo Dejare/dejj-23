@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "./static/css/main.593840a2.css",
-    "main.js": "./static/js/main.6bc41d6c.js",
+    "main.css": "./static/css/main.fed88b15.css",
+    "main.js": "./static/js/main.c1812e89.js",
     "static/media/gnd.jpg": "./static/media/gnd.b1584933065d7aa843db.jpg",
     "static/media/musica.jpg": "./static/media/musica.c858469022dd654121f3.jpg",
     "static/media/malletNFT.jpg": "./static/media/malletNFT.d4552cd11cb686600e80.jpg",
-    "static/media/dejj.jpg": "./static/media/dejj.e3ef1b035155056e2f7f.jpg",
+    "static/media/dejj.jpg": "./../src/assets/images/dejj.jpg",
     "static/media/06.jpg": "./static/media/06.3efc3122722167fdaed2.jpg",
     "static/media/02.jpg": "./static/media/02.599f93c8dd5019f3226f.jpg",
     "static/media/body.otf": "./static/media/body.140bfb4a71fe08805d92.otf",
@@ -16,11 +16,11 @@
     "static/media/iconFour.svg": "./static/media/iconFour.3bf41429036099be9afd1eef05d52e2e.svg",
     "index.html": "./index.html",
     "static/media/HeropageAnimation": "./static/media/HeropageAnimation.d945385124991f4cdf0a",
-    "main.593840a2.css.map": "./static/css/main.593840a2.css.map",
-    "main.6bc41d6c.js.map": "./static/js/main.6bc41d6c.js.map"
+    "main.fed88b15.css.map": "./static/css/main.fed88b15.css.map",
+    "main.c1812e89.js.map": "./static/js/main.c1812e89.js.map"
   },
   "entrypoints": [
-    "static/css/main.593840a2.css",
-    "static/js/main.6bc41d6c.js"
+    "static/css/main.fed88b15.css",
+    "static/js/main.c1812e89.js"
   ]
 }
