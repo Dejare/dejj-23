@@ -101,7 +101,7 @@ function Nav({ closeNav }) {
         id="bg"
       >
         <nav className="w-full" aria-label="Primary">
-          <ul className="navLink heading uppercase text-bone text-[clamp(3rem,10vw,6rem)] leading-[1.05]">
+          <ul className="navLink heading uppercase text-bone text-8xl">
             {links.map((item) => (
               <div key={item.index}>
                 <li id="li" onClick={closeNav}>

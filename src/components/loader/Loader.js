@@ -12,7 +12,7 @@ const Loader = ({ LoadingValue }) => {
         <p className="mb-4 max-w-[16ch] text-sm uppercase leading-relaxed tracking-label text-muted">
           Frontend Developer & Creative Director
         </p>
-        <h1 className="heading text-[clamp(6rem,22vw,15rem)] leading-none text-bone [font-variant-numeric:tabular-nums]">
+        <h1 className="heading text-[150px] leading-none text-bone [font-variant-numeric:tabular-nums]">
           {value}
           <span className="text-accent">%</span>
         </h1>

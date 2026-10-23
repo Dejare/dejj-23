@@ -116,8 +116,8 @@ const Main = () => {
         <>
           {/* hero */}
           <div data-scroll>
-            <div className="relative flex h-[38vh] w-full items-center overflow-hidden text-bone md:h-[62vh]">
-              <div className="crawling-line crawling-line--large heading inline-flex whitespace-nowrap text-[clamp(8rem,24vw,21rem)] uppercase leading-none">
+            <div className="relative flex h-[35vh] w-full items-center overflow-hidden text-[#ffffffb4] md:h-[60vh]">
+              <div className="crawling-line crawling-line--large font-head heading inline-flex whitespace-nowrap uppercase md:text-[350px] text-[250px]">
                 <div
                   className="inline-block animate-[crawling-line_30s_linear_infinite] align-top"
                   data-line="0"
@@ -158,7 +158,7 @@ const Main = () => {
             id="firstCard"
           >
             <div className="order-2 flex min-h-[70vh] w-full flex-col items-start justify-between rounded-[28px] bg-paper p-7 text-ink md:order-1 md:min-h-[88vh] md:w-[58%] md:p-10">
-              <h2 className="max-w-[22ch] text-2xl font-normal leading-snug md:text-4xl md:leading-[1.25]">
+              <h2 className="text-xl font-normal md:text-3xl">
                 Hey, I&rsquo;m Adejare. I curate immersive experiences with
                 technology and work with people all over the world to create
                 tailor-made websites and applications.
@@ -189,7 +189,7 @@ const Main = () => {
               <div className="flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:py-20">
                 <div className="w-full md:w-4/12">
                   <h2
-                    className="heading text-5xl uppercase md:text-7xl"
+                    className="heading text-4xl uppercase md:text-7xl"
                     id="aboutHead"
                     words-slide-down=""
                     text-split=""
@@ -216,7 +216,7 @@ const Main = () => {
               <div className="flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:py-20">
                 <div className="w-full md:w-4/12">
                   <h2
-                    className="heading text-5xl uppercase md:text-7xl"
+                    className="heading text-4xl uppercase md:text-7xl"
                     id="aboutHead"
                     words-slide-down=""
                     text-split=""
@@ -224,7 +224,7 @@ const Main = () => {
                     Here&rsquo;s what I do
                   </h2>
                 </div>
-                <div className="w-full md:w-7/12">
+                <div className="body w-full text-xl md:w-7/12 md:text-2xl">
                   <div className="service-cards">
                     <div className="service-card">
                       <div>
@@ -323,7 +323,7 @@ const Main = () => {
           {/* projects */}
           <div className="mx-auto w-full max-w-[1440px] px-5 md:px-10" id="projects">
             <div className="flex flex-wrap items-end justify-between gap-4">
-              <h2 className="heading text-6xl uppercase md:text-8xl" id="aboutHead">
+              <h2 className="heading text-5xl uppercase md:text-8xl" id="aboutHead">
                 Projects
                 <sup className="ml-3 align-super font-body text-lg tracking-label text-accent md:text-2xl">
                   (05)
@@ -397,7 +397,7 @@ const Main = () => {
 
             <div className="relative text-center">
               <h2
-                className="heading footer-text text-center text-[clamp(2.9rem,9.5vw,10.5rem)] uppercase leading-[0.95] text-ink"
+                className="heading footer-text text-center md:text-[180px] text-8xl leading-[5rem] md:leading-[10rem] uppercase text-ink"
                 letters-slide-down=""
                 text-split=""
               >

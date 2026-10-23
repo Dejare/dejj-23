@@ -58,7 +58,7 @@ const PageAnimation = () => {
           duration: 1,
         },
         {
-          scale: "0.8",
+          scale: "0.95",
           duration: 1,
         }
       );
@@ -69,7 +69,7 @@ const PageAnimation = () => {
           duration: 1,
         },
         {
-          boxShadow: "0rem -4rem 10rem 0rem rgba(0,0,0,0.25)",
+          boxShadow: "0rem -2rem 6rem 0rem rgba(0,0,0,0.18)",
           duration: 1,
         }
       );

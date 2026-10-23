@@ -20,7 +20,7 @@ const NewProjectCard = ({
     >
       <div className="flex w-full flex-col justify-evenly p-6 md:w-1/2 md:justify-between md:p-10">
         <div className="w-full">
-          <h3 className="heading uppercase text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95]">
+          <h3 className="heading uppercase md:text-8xl text-8xl">
             {title}
           </h3>
           <div className="mt-4 flex flex-row flex-wrap items-center gap-y-2">
