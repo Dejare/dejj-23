@@ -1,208 +1,161 @@
-import gsap, { Power1, Power2, Power3, Power4 } from "gsap";
-import SplitType from "split-type";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import $ from "jquery";
-import Observer from "gsap/Observer";
 import { useEffect } from "react";
-
-import React from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitType from "split-type";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const PageAnimation = () => {
-  const aboutHeader = new SplitType("#aboutHead");
-  const aboutBody = new SplitType("#aboutBody");
-
-  const head = new SplitType("#servicesHead");
-  const body = new SplitType("#servicesBody");
-
-
-
-
+export default function usePageAnimations() {
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    gsap.fromTo(
-      "#colorPicker",
-      {
-        x: 70,
-        zIndex: 1,
-        // opacity: 0,
-        // scale: 0.2,
-      },
-      {
-        x: 0,
-        zIndex: -0,
-        opacity: 1,
-        scale: 1,
-        duration: 0.3,
-        ease: Power4.easeInOut(),
-      }
-    );
+    const ctx = gsap.context(() => {
+      /* Hero entrance — masked lines rise, then the supporting pieces fade */
+      gsap.set(".hero-line-inner", { yPercent: 115 });
+      gsap
+        .timeline({ defaults: { ease: "power4.out" } })
+        .to(".hero-line-inner", {
+          yPercent: 0,
+          duration: 1.35,
+          stagger: 0.12,
+        })
+        .fromTo(
+          "[data-hero-fade]",
+          { y: 28, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, stagger: 0.1 },
+          "-=0.7"
+        );
 
-
-    $(".projects-item").each(function (index) {
-      let triggerElement = $(this);
-      let targetElement = $(this).prev();
-      let projectCards = gsap.timeline({
-        scrollTrigger: {
-          trigger: triggerElement,
-          start: "top 75%",
-          end: "top top",
-          scrub: 1,
-        },
+      /* Section headings — line-by-line rise */
+      document.querySelectorAll("[data-reveal]").forEach((el) => {
+        const split = new SplitType(el, { types: "lines" });
+        gsap.fromTo(
+          split.lines,
+          { y: 52, opacity: 0, rotate: 1.5 },
+          {
+            y: 0,
+            opacity: 1,
+            rotate: 0,
+            duration: 1.1,
+            ease: "power4.out",
+            stagger: 0.09,
+            scrollTrigger: { trigger: el, start: "top 88%" },
+          }
+        );
       });
-      projectCards.fromTo(
-        targetElement,
-        {
-          scale: "1",
-          duration: 1,
-        },
-        {
-          scale: "0.95",
-          duration: 1,
-        }
-      );
-      projectCards.fromTo(
-        triggerElement,
-        {
-          boxShadow: "0rem 0rem 0rem 0rem rgba(0,0,0,0)",
-          duration: 1,
-        },
-        {
-          boxShadow: "0rem -2rem 6rem 0rem rgba(0,0,0,0.18)",
-          duration: 1,
-        }
-      );
-    });
 
-    // Split text into spans
-    let typeSplit = new SplitType("[text-split]", {
-      types: "words, chars",
-      tagName: "span",
-    });
-
-    // Link timelines to scroll position
-    function createScrollTrigger(triggerElement, timeline) {
-      // Reset tl when scroll out of view past bottom of screen
-      ScrollTrigger.create({
-        trigger: triggerElement,
-        start: "top bottom",
-        onLeaveBack: () => {
-          timeline.progress(0);
-          timeline.pause();
-        },
-      });
-      // Play tl when scrolled into view
-      ScrollTrigger.create({
-        trigger: triggerElement,
-        start: "top 90%",
-        onEnter: () => timeline.play(),
-      });
-    }
-    gsap.fromTo("#header", {
-      opacity: 1,
-      y: -100
-    }, {
-      opacity: 1,
-      duration: 1,
-      y: 0,
-      ease: Power3.easeIn()
-    })
-
-    gsap.fromTo("#firstCard", {
-      opacity: 1,
-      y: 1000
-    }, {
-      opacity: 1,
-      duration: 1,
-      delay: 2,
-      y: 0,
-      ease: Power3.easeIn()
-    })
-    $("[letters-slide-down]").each(function (index) {
-      let tl = gsap.timeline({ paused: true });
-      tl.from($(this).find(".char"), {
-        opacity: 0,
-        yPercent: -120,
-        duration: 1,
-        delay: 1,
-        ease: Power2.easeOut(),
-        stagger: { amount: 0.5 },
-      });
-      createScrollTrigger($(this), tl);
-    });
-
-    $("[words-slide-down]").each(function (index) {
-      let tl = gsap.timeline({ paused: true });
-      tl.from($(this).find(".char"), {
-        opacity: 0,
-        yPercent: -100,
-        duration: 0.5,
-        ease: Power2.easeOut(),
-        stagger: { amount: 0.5 },
-      });
-      createScrollTrigger($(this), tl);
-    });
-
-    $("[bg-expand]").each(function (index) {
-      let tl = gsap.timeline({ paused: true });
-      // tl.from($(this).find(".char"), {
-      //   opacity: 0,
-      //   yPercent: -100,
-      //   duration: 0.5,
-      //   ease: Power2.easeOut(),
-      //   stagger: { amount: 0.5 },
-      // });
-      tl.fromTo(
-        $(this),
-        {
-          css: {
-            width: "100vw",
-          },
-          duration: 1,
-          ease: Power2.easeOut(),
-        },
-        {
-          css: {
-            width: "93vw",
-          },
-          duration: 1,
-          ease: Power2.easeOut(),
-        }
-      );
-      createScrollTrigger($(this), tl);
-    });
-
-    // Avoid flash of unstyled content
-    gsap.set("[text-split]", { opacity: 1 });
-
-    Observer.create({
-      target: window,
-      type: "pointer",
-      onMove: (self) => {
-        let velocity = self.velocityX * 0.01;
-        let amount = gsap.utils.clamp(-15, 15, velocity);
-        let duration = Math.abs(amount * 0.08);
-        let clampedDuration = gsap.utils.clamp(0.1, 0.9, duration);
-        let tl = gsap.timeline();
-        let tlTwo = gsap.timeline();
-        tlTwo
-          .to(".footer-emoji", {
-            rotate: amount + "deg",
+      /* Manifesto paragraph — words light up as you scroll through it */
+      document.querySelectorAll("[data-words]").forEach((el) => {
+        const split = new SplitType(el, { types: "words" });
+        gsap.fromTo(
+          split.words,
+          { opacity: 0.13 },
+          {
+            opacity: 1,
             ease: "none",
-            duration: 0.2,
-            overwrite: true,
-          })
-          .to(".footer-emoji", {
-            rotate: "0deg",
-            ease: "power1",
-            duration: 0.4,
-          });
-      },
+            stagger: 0.05,
+            scrollTrigger: {
+              trigger: el,
+              start: "top 82%",
+              end: "bottom 45%",
+              scrub: true,
+            },
+          }
+        );
+      });
+
+      /* Generic fade-up blocks */
+      gsap.utils.toArray("[data-fade]").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 90%" },
+          }
+        );
+      });
+
+      /* Image parallax inside their frames */
+      gsap.utils.toArray("[data-parallax]").forEach((img) => {
+        const wrap = img.closest("[data-parallax-wrap]") || img;
+        gsap.fromTo(
+          img,
+          { yPercent: -6 },
+          {
+            yPercent: 6,
+            ease: "none",
+            scrollTrigger: {
+              trigger: wrap,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          }
+        );
+      });
+
+      /* Clip-path reveal for framed images */
+      gsap.utils.toArray("[data-clip]").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { clipPath: "inset(14% 8% 14% 8% round 24px)" },
+          {
+            clipPath: "inset(0% 0% 0% 0% round 24px)",
+            duration: 1.25,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 86%" },
+          }
+        );
+      });
+
+      /* Footer wordmark drifts up as it enters */
+      const wordmark = document.querySelector("[data-wordmark]");
+      if (wordmark) {
+        gsap.fromTo(
+          wordmark,
+          { yPercent: 36 },
+          {
+            yPercent: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: wordmark,
+              start: "top bottom",
+              end: "top 45%",
+              scrub: true,
+            },
+          }
+        );
+      }
+
+      /* Header hides on the way down, returns on the way up */
+      const header = document.querySelector("[data-header]");
+      if (header) {
+        let lastY = 0;
+        ScrollTrigger.create({
+          start: 0,
+          end: "max",
+          onUpdate: (self) => {
+            const y = self.scroll();
+            if (y > 160 && y > lastY + 4) {
+              gsap.to(header, { yPercent: -140, duration: 0.45, ease: "power3.out" });
+            } else if (y < lastY - 4 || y <= 160) {
+              gsap.to(header, { yPercent: 0, duration: 0.45, ease: "power3.out" });
+            }
+            lastY = y;
+          },
+        });
+      }
     });
+
+    const onLoad = () => ScrollTrigger.refresh();
+    window.addEventListener("load", onLoad);
+    return () => {
+      window.removeEventListener("load", onLoad);
+      ctx.revert();
+    };
   }, []);
-};
-
-export default PageAnimation;
-
-// window.addEventListener("DOMContentLoaded", (event) => {});
+}

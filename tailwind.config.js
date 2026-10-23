@@ -4,24 +4,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#161616",
-        coal: "#1e1e1e",
-        smoke: "#2a2a2a",
-        paper: "#f5f2ec",
-        bone: "#edeae4",
-        muted: "#a39e93",
-        accent: "#ff5a1f",
+        ink: "#0A0A09",
+        coal: "#131311",
+        smoke: "#1D1D1A",
+        paper: "#EAE6DC",
+        bone: "#EAE6DC",
+        muted: "#A39B8A",
+        accent: "#FF4D00",
       },
       fontFamily: {
         head: ["Heading", "Arial Narrow", "sans-serif"],
         body: ["Body", "Helvetica Neue", "Arial", "sans-serif"],
       },
       letterSpacing: {
-        display: "-0.02em",
+        display: "-0.03em",
         label: "0.14em",
       },
       transitionTimingFunction: {
-        out: "cubic-bezier(0.2, 0, 0, 1)",
+        out: "cubic-bezier(0.22, 1, 0.36, 1)",
+        expo: "cubic-bezier(0.77, 0, 0.175, 1)",
       },
     },
   },

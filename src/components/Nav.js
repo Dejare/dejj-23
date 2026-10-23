@@ -1,137 +1,153 @@
-import gsap, { Power1, Power2, Power4 } from "gsap";
-import { useRef, useEffect } from "react";
-import { TfiAngleDoubleRight } from "react-icons/tfi";
-import "../assets/styles/ls.css";
+import gsap from "gsap";
+import { useEffect, useMemo, useRef } from "react";
+import { FiArrowUpRight } from "react-icons/fi";
+
+const ARTISTS = [
+  "The Kid Laroi",
+  "NF",
+  "Daughter",
+  "Davido",
+  "Burna Boy",
+  "Little Simz",
+  "Dax",
+  "Young Jonn",
+];
+
+const LINKS = [
+  { label: "Home", href: "#home", index: "01" },
+  { label: "About", href: "#about", index: "02" },
+  { label: "Services", href: "#services", index: "03" },
+  { label: "Projects", href: "#projects", index: "04" },
+  { label: "Contact", href: "#contact", index: "05" },
+];
+
+const SOCIALS = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/adejarree/" },
+  { label: "GitHub", href: "https://www.github.com/dejare" },
+  {
+    label: "Twitter",
+    href: "https://twitter.com/Therealnicron?t=if7WE8sL0Lb5S-MNkK7Lrg&s=09",
+  },
+];
 
 function Nav({ closeNav }) {
-  const bg = useRef();
-  const tl = useRef();
-  const line = useRef();
+  const rootRef = useRef(null);
+  const artist = useMemo(
+    () => ARTISTS[Math.floor(Math.random() * ARTISTS.length)],
+    []
+  );
 
   useEffect(() => {
-    tl.current = gsap.timeline();
-    tl.current
-      .fromTo(
-        "#bg",
-        {
-          y: 1000,
-          paused: false,
-        },
-        {
-          y: 0,
-          duration: 0.7,
-          repeat: 0,
-          ease: Power1.easeIn(),
-        }
-      )
-
-      .fromTo(
-        "#li",
-        {
-          y: -100,
-          opacity: 0,
-        },
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        rootRef.current,
+        { clipPath: "inset(0 0 100% 0)" },
+        { clipPath: "inset(0 0 0% 0)", duration: 0.85, ease: "expo.out" }
+      );
+      gsap.fromTo(
+        ".nav-item",
+        { y: 64, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          stagger: 0.15,
-          ease: Power2.easeIn(),
-        }
-      )
-      .fromTo(
-        "#line",
-        {
-          width: 0,
-          opacity: 0,
-          backgroundColor: "#7c7c7c",
-        },
-        {
-          width: "100%",
-          opacity: 1,
-          stagger: 0.15,
-          backgroundColor: "white",
-          ease: Power2.easeIn(),
-        },
-        "-=1"
-      )
-
-      .fromTo(
-        "#status",
-        {
-          y: 50,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.4,
-          ease: Power4.easeInOut(),
+          duration: 0.9,
+          stagger: 0.07,
+          delay: 0.3,
+          ease: "power4.out",
         }
       );
+      gsap.fromTo(
+        ".nav-meta",
+        { y: 24, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.08,
+          delay: 0.65,
+          ease: "power3.out",
+        }
+      );
+    }, rootRef);
+    return () => ctx.revert();
   }, []);
-  const reverseAnim = () => {
-    tl.current.reverse();
-  };
-  const artist = [
-    "Currently Offline",
-    "The Kid Laroi",
-    "NF",
-    "Daughter",
-    "Davido",
-    "Burna Boy",
-    "Currently Offline",
-    "Little Simz",
-    "Daxx",
-    "Young jonn",
-  ];
-  const random = Math.floor(Math.random() * artist.length);
 
-  const links = [
-    { label: "Home", href: "/", index: "01" },
-    { label: "About", href: "#about", index: "02" },
-    { label: "Projects", href: "#projects", index: "03" },
-    { label: "Contact", href: "#contact", index: "04" },
-  ];
+  const go = (e, href) => {
+    e.preventDefault();
+    closeNav();
+    if (href === "#home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <div className="h-screen w-full">
-      <div
-        className="m-auto flex h-[95vh] w-11/12 flex-col rounded-[28px] bg-coal p-4 shadow-[inset_0_0_0_1px_#ffffff14] md:p-12"
-        ref={bg}
-        id="bg"
+    <div
+      ref={rootRef}
+      className="fixed inset-0 z-[90] flex flex-col bg-coal text-bone"
+      style={{ clipPath: "inset(0 0 100% 0)" }}
+    >
+      <nav
+        aria-label="Primary"
+        className="flex flex-1 flex-col justify-center px-5 pt-24 md:px-10"
       >
-        <nav className="w-full" aria-label="Primary">
-          <ul className="navLink heading uppercase text-bone text-8xl">
-            {links.map((item) => (
-              <div key={item.index}>
-                <li id="li" onClick={closeNav}>
-                  <div className="flex flex-row items-center">
-                    <TfiAngleDoubleRight size={20} className="icon mr-3" />
-                    <a href={item.href}>{item.label}</a>
-                  </div>
-                  <p>{item.index}</p>
-                </li>
-                <hr className="w-full" id="line" />
-              </div>
-            ))}
-          </ul>
-        </nav>
-        <div
-          className="mt-auto flex flex-row items-end justify-between pt-8 text-bone"
-          id="status"
-        >
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-label text-muted">
-              Available in
-            </p>
-            <h2 className="mt-1 text-lg">January 2023</h2>
-          </div>
-          <div className="text-right">
-            <p className="text-[10px] font-bold uppercase tracking-label text-muted">
-              Listening to
-            </p>
-            <h2 className="mt-1 text-lg">{artist[random]}</h2>
-          </div>
+        <ul>
+          {LINKS.map((item) => (
+            <li key={item.index} className="nav-item border-t border-white/10 last:border-b">
+              <a
+                href={item.href}
+                onClick={(e) => go(e, item.href)}
+                className="group flex items-baseline gap-4 py-2 transition-transform duration-500 ease-out md:gap-8"
+              >
+                <span className="font-head text-sm text-accent md:text-base">
+                  ({item.index})
+                </span>
+                <span className="heading uppercase leading-[0.95] text-[clamp(3.2rem,10.5vw,7.5rem)] transition-all duration-500 ease-out group-hover:translate-x-3 group-hover:text-accent md:group-hover:translate-x-5">
+                  {item.label}
+                </span>
+                <FiArrowUpRight
+                  className="ml-auto shrink-0 self-center text-accent opacity-0 transition-all duration-500 ease-out group-hover:opacity-100"
+                  size={36}
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div className="flex flex-col gap-6 px-5 pb-8 md:flex-row md:items-end md:justify-between md:px-10">
+        <div className="nav-meta">
+          <p className="text-[10px] font-bold uppercase tracking-label text-muted">
+            Status
+          </p>
+          <p className="mt-1 flex items-center gap-2 text-lg">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            Available for work
+          </p>
+        </div>
+        <div className="nav-meta">
+          <p className="text-[10px] font-bold uppercase tracking-label text-muted">
+            Listening to
+          </p>
+          <p className="mt-1 text-lg">{artist}</p>
+        </div>
+        <div className="nav-meta flex gap-5">
+          {SOCIALS.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noreferrer"
+              className="link-line text-sm uppercase tracking-label text-bone/80 transition-colors duration-200 hover:text-bone"
+            >
+              {s.label}
+            </a>
+          ))}
         </div>
       </div>
     </div>

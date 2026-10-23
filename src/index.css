@@ -10,17 +10,98 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  background: #0a0a09;
 }
 
 ::selection {
-  background: #ff5a1f;
-  color: #161616;
+  background: #ff4d00;
+  color: #0a0a09;
 }
 
 :focus-visible {
-  outline: 2px solid #ff5a1f;
+  outline: 2px solid #ff4d00;
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+/* Custom cursor takes over on precise pointers */
+@media (hover: hover) and (pointer: fine) {
+  body,
+  a,
+  button,
+  [role="button"] {
+    cursor: none;
+  }
+}
+
+/* Outlined display type */
+.text-outline {
+  -webkit-text-stroke: 2px #eae6dc;
+  color: transparent;
+}
+@media (max-width: 768px) {
+  .text-outline {
+    -webkit-text-stroke-width: 1.2px;
+  }
+}
+
+/* Film grain */
+.grain {
+  position: fixed;
+  inset: -60%;
+  width: 220%;
+  height: 220%;
+  pointer-events: none;
+  z-index: 65;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 9s steps(10) infinite;
+}
+@keyframes grain-shift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3%, 2%);
+  }
+  40% {
+    transform: translate(2%, -3%);
+  }
+  60% {
+    transform: translate(-2%, -2%);
+  }
+  80% {
+    transform: translate(3%, 3%);
+  }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 26s linear infinite;
+}
+
+/* Rotating badge */
+@keyframes spin-slower {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slower {
+  animation: spin-slower 14s linear infinite;
+}
+
+/* SplitType line wrappers keep their natural block flow */
+.line {
+  display: block;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -31,5 +112,8 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .grain {
+    animation: none;
   }
 }

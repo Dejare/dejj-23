@@ -1,78 +1,61 @@
-import React from "react";
-import { TbCornerRightDown } from "react-icons/tb";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const NewProjectCard = ({
+  index,
   title,
   details,
   stackOne,
   stackTwo,
   image,
   link,
-  display,
-  displayTwo,
-  id,
-  projectClass,
+  flip,
 }) => {
   return (
-    <article
-      className={`projects-item group mx-auto my-12 flex max-h-fit w-full flex-col overflow-hidden rounded-[28px] bg-paper text-ink shadow-[0_32px_64px_-32px_rgba(0,0,0,0.6)] md:my-24 md:h-[90vh] md:flex-row ${projectClass || ""}`}
-      id={id}
-    >
-      <div className="flex w-full flex-col justify-evenly p-6 md:w-1/2 md:justify-between md:p-10">
-        <div className="w-full">
-          <h3 className="heading uppercase md:text-8xl text-8xl">
-            {title}
-          </h3>
-          <div className="mt-4 flex flex-row flex-wrap items-center gap-y-2">
-            <div className="stack">React</div>
-            <div className="stack">Tailwind</div>
-            <div className="stack">Gsap</div>
-            {stackOne && (
-              <div className="stack" style={{ display: `${display}` }}>
-                {stackOne}
-              </div>
-            )}
-            {stackTwo && (
-              <div className="stack" style={{ display: `${displayTwo}` }}>
-                {stackTwo}
-              </div>
-            )}
-          </div>
+    <article className="group grid items-center gap-8 md:grid-cols-12 md:gap-10" data-fade>
+      <a
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`${title} — visit live site`}
+        data-parallax-wrap=""
+        className={`relative block overflow-hidden rounded-[20px] md:col-span-7 ${
+          flip ? "md:order-2" : ""
+        }`}
+      >
+        <div className="relative aspect-[4/3] w-full overflow-hidden">
+          <img
+            src={image}
+            alt={`${title} preview`}
+            loading="lazy"
+            data-parallax=""
+            className="absolute left-0 top-[-12%] h-[124%] w-full object-cover brightness-[0.96] transition-[filter] duration-700 ease-out group-hover:brightness-110"
+          />
         </div>
-        <div className="mt-12 md:mt-0 md:max-w-[42ch]">
-          <p className="text-base leading-relaxed text-ink/70 md:text-lg">
-            {details}
-          </p>
+        <span className="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1.5 font-head text-[11px] uppercase tracking-label text-bone backdrop-blur-md">
+          (0{index})
+        </span>
+      </a>
 
-          <div className="mt-6">
-            <button
-              type="button"
-              className="nav__button c-button contact-scroll"
-              onClick={() => {
-                window.open(`${link}`, "_blank", "noopener,noreferrer");
-              }}
-            >
-              <span className="c-link">
-                <span className="c-link__inner">
-                  <span> Visit Live </span>
-                  <span className="c-link__animated"> Visit Live </span>
-                </span>
-              </span>
-              <span className="ml-3 flex h-5 w-5 items-center justify-center rounded-full bg-ink text-paper md:ml-2">
-                <TbCornerRightDown />
-              </span>
-            </button>
-          </div>
+      <div className={`md:col-span-5 ${flip ? "md:order-1 md:pr-4" : "md:pl-4"}`}>
+        <h3 className="heading uppercase leading-[0.92] text-[clamp(2.6rem,5.5vw,4.8rem)] transition-colors duration-300 group-hover:text-accent">
+          {title}
+        </h3>
+        <p className="body mt-5 max-w-[46ch] text-lg leading-relaxed text-bone/70">
+          {details}
+        </p>
+        <div className="mt-6 flex flex-wrap gap-2">
+          {stackOne && <span className="text-bubble">{stackOne}</span>}
+          {stackTwo && <span className="text-bubble">{stackTwo}</span>}
         </div>
-      </div>
-
-      <div className="relative mt-6 w-full p-3 md:mt-0 md:h-full md:w-1/2 md:p-4">
-        <img
-          src={image}
-          alt={`${title} project screenshot`}
-          loading="lazy"
-          className="h-full w-full rounded-[20px] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-        />
+        <a
+          href={link}
+          target="_blank"
+          rel="noreferrer"
+          className="button mt-9 inline-flex items-center gap-2 rounded-full border border-bone/25 px-6 py-3 text-[11px] uppercase tracking-label text-bone transition-colors duration-300 ease-out hover:bg-bone hover:text-ink"
+        >
+          Visit site
+          <FiArrowUpRight size={14} />
+        </a>
       </div>
     </article>
   );

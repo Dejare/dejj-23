@@ -1,25 +1,44 @@
+/* Animated underline that grows from the left */
+.link-line {
+  position: relative;
+}
+
+.link-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.link-line:hover::after,
+.link-line:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Footer social pills (dark on bone) */
 .c-button {
-  display: flex;
+  display: inline-flex;
   background: transparent;
-  color: #161616;
+  color: #0a0a09;
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 8px 16px;
-  border: 1px solid #161616;
+  padding: 10px 20px;
+  border: 1px solid #0a0a0955;
   border-radius: 45px;
-  cursor: pointer;
-  transition: background-color 0.3s cubic-bezier(0.2, 0, 0, 1),
-    color 0.3s cubic-bezier(0.2, 0, 0, 1),
-    border-color 0.3s cubic-bezier(0.2, 0, 0, 1),
-    transform 0.2s cubic-bezier(0.2, 0, 0, 1);
-  margin: 0.2rem 0.2rem;
   align-items: center;
   justify-content: center;
-
-  &:first-child {
-    margin-left: 0rem;
-  }
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.16s cubic-bezier(0.22, 1, 0.36, 1);
 
   &:active {
     transform: scale(0.96);
@@ -27,75 +46,9 @@
 
   &:hover {
     @media (any-pointer: fine) {
-      border-color: #161616;
-      color: #f5f2ec;
-      background: #161616;
-      font-weight: 500;
-    }
-  }
-
-  .c-link {
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-
-    &__inner {
-      display: flex;
-      transform: translateY(0);
-      transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1);
-      margin-right: 2px;
-    }
-
-    &__animated {
-      position: absolute;
-      top: 100%;
-      display: none;
-      font-family: "Body", "Helvetica Neue", Arial, sans-serif;
-
-      @media (any-pointer: fine) {
-        display: inline-block;
-      }
-    }
-  }
-
-  &:hover {
-    @media (any-pointer: fine) {
-      .c-link__inner {
-        transform: translateY(-100%);
-      }
-    }
-  }
-}
-
-.c-infinite {
-  .c-link {
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-
-    &__inner {
-      display: flex;
-      transform: translateY(-100%);
-      animation: infiniteArrow 1s infinite cubic-bezier(0.2, 0, 0, 1);
-
-      > span {
-        /* white-space: nowrap; */
-      }
-    }
-
-    &__animated {
-      position: absolute;
-      top: 100%;
-    }
-  }
-
-  @keyframes infiniteArrow {
-    100% {
-      transform: translateY(0);
+      border-color: #0a0a09;
+      color: #eae6dc;
+      background: #0a0a09;
     }
   }
 }

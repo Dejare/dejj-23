@@ -1,18 +1,31 @@
-const Loader = ({ LoadingValue }) => {
+const Loader = ({ LoadingValue, exiting }) => {
   const value = Math.min(100, Math.max(0, LoadingValue));
 
   return (
-    <div className="fixed inset-0 z-[100] flex h-screen w-screen flex-col justify-between bg-ink p-6 text-bone md:p-10">
-      <div className="flex items-center justify-between text-[11px] uppercase tracking-label text-muted">
-        <span>Adejare™</span>
-        <span>Portfolio — Loading</span>
+    <div
+      aria-hidden={exiting}
+      className="fixed inset-0 z-[200] flex h-screen w-screen flex-col justify-between bg-ink p-6 text-bone transition-transform duration-[900ms] ease-expo md:p-10"
+      style={{ transform: exiting ? "translateY(-100%)" : "translateY(0)" }}
+    >
+      <div
+        className="flex items-center justify-between text-[11px] uppercase tracking-label text-muted transition-opacity duration-300"
+        style={{ opacity: exiting ? 0 : 1 }}
+      >
+        <span>
+          Adejare<span className="text-accent">©</span>
+        </span>
+        <span>Folio — 2023</span>
+        <span className="hidden md:block">Lagos, Nigeria</span>
       </div>
 
-      <div className="flex items-end justify-between">
-        <p className="mb-4 max-w-[16ch] text-sm uppercase leading-relaxed tracking-label text-muted">
-          Frontend Developer & Creative Director
+      <div
+        className="flex items-end justify-between transition-opacity duration-300"
+        style={{ opacity: exiting ? 0 : 1 }}
+      >
+        <p className="mb-5 max-w-[18ch] text-sm uppercase leading-relaxed tracking-label text-muted">
+          Frontend Developer &amp; Creative Director
         </p>
-        <h1 className="heading text-[150px] leading-none text-bone [font-variant-numeric:tabular-nums]">
+        <h1 className="heading text-[clamp(7rem,26vw,15rem)] leading-[0.85] text-bone [font-variant-numeric:tabular-nums]">
           {value}
           <span className="text-accent">%</span>
         </h1>

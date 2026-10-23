@@ -1,127 +1,47 @@
-// mixins
-@mixin center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Service rows — a bone-white sheet sweeps up on hover */
+.service-row {
+  position: relative;
+  isolation: isolate;
 }
 
-header {
-  color: white;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 1rem 2rem;
-  align-items: center;
-  @media screen and (max-width: 768px) {
-    padding: 1rem 0.6rem;
-  }
-  nav {
-    width: 44px;
-    height: 44px;
-    background: #f5f2ec;
-    color: #161616;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1),
-      background-color 0.2s cubic-bezier(0.2, 0, 0, 1);
-    @include center;
-    &:hover {
-      background: #ff5a1f;
-      color: #161616;
-    }
-    &:active {
-      transform: scale(0.96);
-    }
+.service-row::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #eae6dc;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.55s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: -1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .service-row:hover::after {
+    transform: scaleY(1);
   }
 }
 
-// animations
-@keyframes crawling-line {
-  0% {
-    transform: translateZ(0);
-  }
-  to {
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-.crawling-line {
-  will-change: transform;
-}
-
-// buttons
-
+/* Generic pill button */
 .button {
-  padding: 0.65rem 1.25rem;
-  margin: 1rem 0rem;
-  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1),
-    background-color 0.25s cubic-bezier(0.2, 0, 0, 1),
-    color 0.25s cubic-bezier(0.2, 0, 0, 1);
+  transition: transform 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   &:active {
     transform: scale(0.96);
   }
 }
 
-.stack,
-.btn_one_social {
-  border: 1px solid #16161655;
-  padding: 0.3rem 0.85rem;
-  color: #161616;
-  border-radius: 25px;
-  margin-right: 0.35rem;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: background-color 0.25s cubic-bezier(0.2, 0, 0, 1),
-    color 0.25s cubic-bezier(0.2, 0, 0, 1);
-  &:hover {
-    background: #161616;
-    color: #f5f2ec;
-  }
-}
-
-.navLink {
-  li {
-    margin: 0.5rem 0rem;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    color: #8f8a80;
-    flex-direction: row;
-    transition: color 0.45s cubic-bezier(0.2, 0, 0, 1);
-    &:hover {
-      color: #f5f2ec;
-      a {
-        color: #f5f2ec;
-        transform: translateX(10px);
-        @media screen and (max-width: 768px) {
-          transform: translateX(5px);
-        }
-      }
-    }
-    p {
-      font-family: "Body", "Helvetica Neue", Arial, sans-serif;
-      font-size: 14px;
-      letter-spacing: 0.1em;
-      margin-bottom: 8px;
-      font-variant-numeric: tabular-nums;
-    }
-    a {
-      transition: transform 0.45s cubic-bezier(0.2, 0, 0, 1),
-        color 0.45s cubic-bezier(0.2, 0, 0, 1);
-    }
-  }
-  hr {
-    border-top: 1px solid #ffffff1f;
-    margin-bottom: 1rem;
-  }
-  .icon {
-    display: none;
-  }
-}
-
-.navLink li:hover .icon {
-  display: flex;
-  color: #ff5a1f;
+/* Footer emoji badge */
+.footer-emoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1em;
+  height: 1.1em;
+  border-radius: 999px;
+  background: #ff4d00;
+  font-size: 0.42em;
+  line-height: 1;
+  vertical-align: baseline;
+  user-select: none;
 }

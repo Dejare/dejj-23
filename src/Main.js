@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./assets/styles/main.scss";
-import { HiOutlineMenuAlt4, HiArrowCircleUp } from "react-icons/hi";
-import { TbCornerRightDown } from "react-icons/tb";
+import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { TfiClose } from "react-icons/tfi";
+import { FiArrowDown, FiArrowUp } from "react-icons/fi";
 import img from "./assets/images/dejj.jpg";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Nav from "./components/Nav";
 import gnd from "./assets/images/gnd.jpg";
 import musica from "./assets/images/musica.jpg";
@@ -13,453 +11,436 @@ import mallet from "./assets/images/malletNFT.jpg";
 import evaluate from "./assets/images/02.jpg";
 import adejare from "./assets/images/06.jpg";
 import NewProjectCard from "./components/NewProjectCard";
-import ButtonOne from "./components/ButtonOne";
-import PageAnimation from "./assets/PageAnimation";
-import iconOne from "./assets/images/iconOne.svg";
-import iconTwo from "./assets/images/iconTwo.svg";
-import iconThree from "./assets/images/iconThree.svg";
-import iconFour from "./assets/images/iconFour.svg";
 import Clock from "./components/Clock";
-import HeropageAnimation from "./assets/HeropageAnimation";
+import usePageAnimations from "./assets/PageAnimation";
 
-gsap.registerPlugin(ScrollTrigger);
+const SERVICES = [
+  {
+    n: "01",
+    title: "Frontend Development",
+    desc: "I curate immersive web experiences with various technologies — the one you're on right now, for example, is built in React too.",
+    tags: ["React", "Custom code"],
+  },
+  {
+    n: "02",
+    title: "Digital Design",
+    desc: "Designing for the web is not static. It's about interactions, animations, usability, consistency and so much more.",
+    tags: ["Web design", "SCSS"],
+  },
+  {
+    n: "03",
+    title: "Art Direction",
+    desc: "When overlooking a creative process, the overlap between aesthetics and function has my full attention.",
+    tags: ["Concepting", "Art direction"],
+  },
+  {
+    n: "04",
+    title: "Interaction Design",
+    desc: "Have a frontend project already built and need some help with refining animations and interactions? I got you.",
+    tags: ["Animations", "Interactions"],
+  },
+];
 
-const COLOR_MODES = [
-  { name: "Charcoal", value: "#292929", swatch: "bg-[#292929]" },
-  { name: "Deep red", value: "#2d0b04", swatch: "bg-[#2d0b04]" },
-  { name: "Deep green", value: "#152a21", swatch: "bg-[#152a21]" },
+const FACTS = [
+  "Self-taught front-end developer",
+  "Computer Engineering — Federal University of Technology, Akure",
+  "Based in Lagos, working with people all over the world",
 ];
 
 const Main = () => {
   const [navOpen, setNavOpen] = useState(false);
-  const [colorModeVisible, setColorModeVisible] = useState(false);
 
-  PageAnimation();
-  // HeropageAnimation()
-
-  useEffect(() => {
-    if (!colorModeVisible) return;
-    gsap.fromTo(
-      "#colorPicker",
-      { x: 24, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.35, ease: "power3.out" }
-    );
-  }, [colorModeVisible]);
-
-  const applyColorMode = (value) => {
-    document.body.style.backgroundColor = value;
-    setColorModeVisible(false);
-  };
+  usePageAnimations();
 
   return (
-    <div className="w-full text-bone">
+    <div className="relative w-full bg-ink font-body text-bone" id="home">
+      <div className="grain" aria-hidden="true" />
+
       {/* header */}
-      <div className="sticky top-3 z-50 mx-auto w-full max-w-[1440px] px-3 md:top-5 md:px-6">
-        <header
-          id="header"
-          className="w-full justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-4 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.5)] backdrop-blur-xl md:p-5"
-        >
-          <a href="/" className="heading text-lg tracking-display" aria-label="Adejare — home">
-            Adejare<span className="text-accent">™</span>
+      <header
+        data-header=""
+        className="fixed inset-x-0 top-0 z-[100] text-bone mix-blend-difference"
+      >
+        <div className="flex items-center justify-between px-5 py-5 md:px-10">
+          <a
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="heading text-lg uppercase tracking-display md:text-xl"
+            aria-label="Adejare — back to top"
+          >
+            Adejare<span>©</span>
           </a>
-          <div className="flex flex-row items-center gap-2 md:gap-3">
-            {colorModeVisible && (
-              <div
-                id="colorPicker"
-                className="flex items-center justify-center gap-1 rounded-full bg-white/[0.04] px-3 py-2 shadow-[inset_0_0_0_1px_#ffffff14]"
-                role="group"
-                aria-label="Colour mode"
-              >
-                {COLOR_MODES.map((mode) => (
-                  <button
-                    key={mode.name}
-                    type="button"
-                    aria-label={`${mode.name} background`}
-                    className={`h-6 w-6 rounded-full shadow-[inset_0_0_0_1px_#ffffff2e] transition-transform duration-200 ease-out hover:scale-110 active:scale-95 ${mode.swatch}`}
-                    onClick={() => applyColorMode(mode.value)}
-                  />
-                ))}
-              </div>
-            )}
-
-            <button
-              type="button"
-              aria-expanded={colorModeVisible}
-              className="rounded-full bg-white/[0.04] px-4 py-2 text-[11px] uppercase tracking-label text-bone shadow-[inset_0_0_0_1px_#ffffff14] transition-colors duration-200 ease-out hover:bg-white/10 active:scale-95 md:px-5"
-              onClick={() => setColorModeVisible(!colorModeVisible)}
-            >
-              Color mode
-            </button>
-
-            <nav
-              role="button"
-              tabIndex={0}
-              aria-label={navOpen ? "Close menu" : "Open menu"}
-              aria-expanded={navOpen}
-              onClick={() => setNavOpen(!navOpen)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  setNavOpen(!navOpen);
-                }
-              }}
-            >
-              {navOpen ? <TfiClose size={18} /> : <HiOutlineMenuAlt4 size={20} />}
-            </nav>
-          </div>
-        </header>
-      </div>
-
-      {navOpen ? (
-        <Nav closeNav={() => setNavOpen(false)} />
-      ) : (
-        <>
-          {/* hero */}
-          <div data-scroll>
-            <div className="relative flex h-[35vh] w-full items-center overflow-hidden text-[#ffffffb4] md:h-[60vh]">
-              <div className="crawling-line crawling-line--large font-head heading inline-flex whitespace-nowrap uppercase md:text-[350px] text-[250px]">
-                <div
-                  className="inline-block animate-[crawling-line_30s_linear_infinite] align-top"
-                  data-line="0"
-                  letters-slide-down=""
-                  text-split=""
-                  id="intro"
-                >
-                  Frontend Developer &amp; creative director &nbsp;
-                </div>
-                <div
-                  className="mx-8 inline-block animate-[crawling-line_30s_linear_infinite] align-top"
-                  data-line="1"
-                  letters-slide-down=""
-                  text-split=""
-                  aria-hidden="true"
-                >
-                  Frontend Developer &amp; creative director &nbsp;
-                </div>
-              </div>
-            </div>
-            <div className="mx-auto flex w-full max-w-[1440px] flex-row items-center justify-between px-5 pb-2 text-[11px] uppercase tracking-label text-muted md:px-10">
-              <p>
-                Adejare Daniels <span className="text-accent">—</span> Lagos, Nigeria
-              </p>
-              <p className="hidden items-center gap-2 md:flex">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-                </span>
-                Available for work
-              </p>
-            </div>
-          </div>
-
-          {/* intro card + portrait */}
-          <section
-            className="mx-auto flex w-full max-w-[1440px] flex-col gap-5 px-3 py-5 md:flex-row md:px-6"
-            id="firstCard"
+          <p className="hidden items-center gap-3 text-[11px] uppercase tracking-label md:flex">
+            Lagos, NG
+            <span className="[font-variant-numeric:tabular-nums]">
+              <Clock />
+            </span>
+          </p>
+          <button
+            type="button"
+            onClick={() => setNavOpen(!navOpen)}
+            aria-expanded={navOpen}
+            aria-label={navOpen ? "Close menu" : "Open menu"}
+            className="flex items-center gap-3 text-[11px] uppercase tracking-label transition-transform duration-200 ease-out active:scale-95"
           >
-            <div className="order-2 flex min-h-[70vh] w-full flex-col items-start justify-between rounded-[28px] bg-paper p-7 text-ink md:order-1 md:min-h-[88vh] md:w-[58%] md:p-10">
-              <h2 className="text-xl font-normal md:text-3xl">
-                Hey, I&rsquo;m Adejare. I curate immersive experiences with
-                technology and work with people all over the world to create
-                tailor-made websites and applications.
-              </h2>
-              <a
-                href="#about"
-                className="button flex flex-row items-center rounded-full border border-ink uppercase text-ink transition-colors duration-300 ease-out hover:bg-ink hover:text-paper"
-              >
-                a bit about me
-                <span className="ml-3 flex h-5 w-5 items-center justify-center rounded-full bg-ink text-paper md:ml-4">
-                  <TbCornerRightDown />
-                </span>
-              </a>
-            </div>
-            <div className="order-1 w-full md:order-2 md:w-[42%]">
-              <img
-                src={img}
-                alt="Portrait of Adejare"
-                className="h-[60vh] w-full rounded-[28px] object-cover md:h-full md:min-h-[88vh]"
-              />
-            </div>
-          </section>
+            {navOpen ? "Close" : "Menu"}
+            {navOpen ? <TfiClose size={18} /> : <HiOutlineMenuAlt4 size={22} />}
+          </button>
+        </div>
+      </header>
 
-          {/* about */}
-          <div className="mt-10" id="about">
-            <div className="mx-auto w-full max-w-[1440px] px-5 md:px-10">
-              <hr className="border-white/10" />
-              <div className="flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:py-20">
-                <div className="w-full md:w-4/12">
-                  <h2
-                    className="heading text-4xl uppercase md:text-7xl"
-                    id="aboutHead"
-                    words-slide-down=""
-                    text-split=""
-                  >
-                    About me
-                  </h2>
-                </div>
-                <div className="body w-full text-lg text-bone/85 md:w-7/12 md:text-2xl">
-                  <p id="abouBody" className="max-w-[62ch]">
-                    I&rsquo;m Adejare Daniels. I am a self-taught Front-end
-                    Developer and school taught computer engineer. I&rsquo;m
-                    currently a student of the Federal University Of
-                    Technology, Akure. <br /> As a creative developer, I focus
-                    on both design, development and functionality — allowing me
-                    to work on projects from concept until the very moment I
-                    hit publish. Unique layouts, functionality, great
-                    typography, clean, reuseable and readable codebase is what
-                    I focus on when working on websites.
-                  </p>
-                </div>
-              </div>
+      {navOpen && <Nav closeNav={() => setNavOpen(false)} />}
 
-              <hr className="border-white/10" />
-              <div className="flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:py-20">
-                <div className="w-full md:w-4/12">
-                  <h2
-                    className="heading text-4xl uppercase md:text-7xl"
-                    id="aboutHead"
-                    words-slide-down=""
-                    text-split=""
-                  >
-                    Here&rsquo;s what I do
-                  </h2>
-                </div>
-                <div className="body w-full text-xl md:w-7/12 md:text-2xl">
-                  <div className="service-cards">
-                    <div className="service-card">
-                      <div>
-                        <div className="service-c_icon-w">
-                          <img src={iconOne} loading="lazy" alt="" className="service-c_icon" />
-                        </div>
-                        <h3 className="heading-small">Frontend Development</h3>
-                      </div>
-                      <div>
-                        <p className="service-c_p text-lg">
-                          I curate immersive web experience&rsquo;s with
-                          various technologies, The one you&rsquo;re on right
-                          now, for example, is built in REACT too.
-                        </p>
-                        <div className="service-c_buttons">
-                          <div className="text-bubble">react</div>
-                          <div className="text-bubble">custom code</div>
-                        </div>
-                      </div>
-                      <div className="service-c_bg"></div>
-                    </div>
-                    <div className="service-card">
-                      <div>
-                        <div className="service-c_icon-w">
-                          <img src={iconTwo} loading="lazy" alt="" className="service-c_icon" />
-                        </div>
-                        <h3 className="heading-small">Digital Design</h3>
-                      </div>
-                      <div>
-                        <p className="service-c_p text-lg">
-                          Designing for the web is not static. It&rsquo;s about
-                          interactions, animations, usability, consistency and
-                          so much more.
-                        </p>
-                        <div className="service-c_buttons">
-                          <div className="text-bubble">web design</div>
-                          <div className="text-bubble">SCSS</div>
-                        </div>
-                      </div>
-                      <div className="service-c_bg"></div>
-                    </div>
-                    <div className="service-card">
-                      <div>
-                        <div className="service-c_icon-w">
-                          <img src={iconThree} loading="lazy" alt="" className="service-c_icon" />
-                        </div>
-                        <h3 className="heading-small">Art Direction</h3>
-                      </div>
-                      <div>
-                        <p className="service-c_p text-lg">
-                          When overlooking a creative process, the overlap
-                          between aesthetics and function has my full attention.
-                        </p>
-                        <div className="service-c_buttons">
-                          <div className="text-bubble">concepting</div>
-                          <div className="text-bubble">art direction</div>
-                        </div>
-                      </div>
-                      <div className="service-c_bg"></div>
-                    </div>
-                    <div className="service-card">
-                      <div>
-                        <div className="service-c_icon-w">
-                          <img src={iconFour} loading="lazy" alt="" className="service-c_icon" />
-                        </div>
-                        <h3 className="heading-small">Interaction Design</h3>
-                      </div>
-                      <div>
-                        <p className="service-c_p text-lg">
-                          Have a frontend project already built and need some
-                          help with refining animations and interactions? I got
-                          you.
-                        </p>
-                        <div className="service-c_buttons">
-                          <div className="text-bubble">animations</div>
-                          <div className="text-bubble">interactions</div>
-                        </div>
-                      </div>
-                      <div className="service-c_bg"></div>
-                    </div>
-                  </div>
-                  <a
-                    href="#project"
-                    className="button mt-8 flex w-fit flex-row items-center rounded-full border border-bone/60 text-lg uppercase text-bone transition-colors duration-300 ease-out hover:bg-paper hover:text-ink"
-                  >
-                    explore my work
-                    <span className="ml-2 flex h-5 w-5 items-center justify-center rounded-full bg-paper text-ink">
-                      <TbCornerRightDown />
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* projects */}
-          <div className="mx-auto w-full max-w-[1440px] px-5 md:px-10" id="projects">
-            <div className="flex flex-wrap items-end justify-between gap-4">
-              <h2 className="heading text-5xl uppercase md:text-8xl" id="aboutHead">
-                Projects
-                <sup className="ml-3 align-super font-body text-lg tracking-label text-accent md:text-2xl">
-                  (05)
-                </sup>
-              </h2>
-              <p className="body pb-2 text-muted">Here are some of my past works..</p>
-            </div>
-            <div id="project" className="my-4"></div>
-            <div>
-              <NewProjectCard
-                title="Mallet!"
-                details="A simple landing page for an NFT trading organization"
-                stackOne="Framer"
-                stackTwo="Null"
-                image={mallet}
-                link="https://mallet.vercel.app/"
-              />
-              <NewProjectCard
-                title="Musicaa V1.0"
-                details="An online music streaming platform with search and sort functionality consuming spotify's API"
-                stackOne="Spotify"
-                stackTwo="API's"
-                image={musica}
-                link="https://musicaa.vercel.app"
-              />
-              <NewProjectCard
-                title="GND Crypto"
-                details="An online dashboard for cryptocurrency transactions (mock numbers) with state management "
-                stackOne="Redux"
-                stackTwo="API's"
-                image={gnd}
-                link="https://dashboard-dejare.vercel.app"
-              />
-              <NewProjectCard
-                title="Evaluate V1.0"
-                details="An all round intuitive, precise testing systems for students"
-                stackOne="Supabase"
-                image={evaluate}
-                link="https://evaluattee.vercel.app"
-                displayTwo="none"
-              />
-              <NewProjectCard
-                projectclassName={"projectOne"}
-                title="Adejare V1.0"
-                details="The last version of my previous portfolio.."
-                image={adejare}
-                link="https://adejarree.vercel.app/"
-                display="none"
-                displayTwo="none"
-              />
-            </div>
-          </div>
-
-          {/* footer */}
-          <footer
-            className="relative m-auto mb-12 flex h-[85vh] w-[93vw] max-w-[1440px] flex-col items-center justify-between rounded-[28px] bg-paper p-6 text-ink md:h-[90vh] md:p-10"
-            id="contact"
-            bg-expand=""
+      <main>
+        {/* hero */}
+        <section className="px-5 pt-28 md:px-10 md:pt-36">
+          <div
+            className="flex items-center justify-between border-b border-white/10 pb-4 text-[11px] uppercase tracking-label text-muted"
+            data-hero-fade=""
           >
-            <div className="flex w-full flex-col items-center justify-between md:flex-row">
-              <p className="text-center leading-relaxed text-ink/70">
-                Frontend Developer <br />
-                Portfolio 2023
-              </p>
-              <p className="heading hidden text-ink md:block">Adejare</p>
-              <p className="mt-5 text-center leading-relaxed text-ink/70 md:mt-0 md:text-right">
-                Available for full-time work
-                <br /> October 2023
-              </p>
-            </div>
+            <p>Adejare Daniels</p>
+            <p className="hidden md:block">Front-End Developer &amp; Creative Director</p>
+            <p>Lagos, Nigeria</p>
+          </div>
 
-            <div className="relative text-center">
-              <h2
-                className="heading footer-text text-center md:text-[180px] text-8xl leading-[5rem] md:leading-[10rem] uppercase text-ink"
-                letters-slide-down=""
-                text-split=""
-              >
-                Interested in <br />
-                working together?
-              </h2>
-              <span className="footer-emoji" aria-hidden="true">
-                ✌🏾
+          <h1 className="heading mt-8 uppercase leading-[0.84] tracking-display md:mt-12">
+            <span className="hero-line">
+              <span className="hero-line-inner text-[clamp(4rem,15.2vw,15rem)]">
+                Adejare
               </span>
-              <p className="mt-10 text-sm uppercase tracking-label text-ink/60">
-                Drop me an email
+            </span>
+            <span className="hero-line">
+              <span className="hero-line-inner text-outline text-[clamp(4rem,15.2vw,15rem)]">
+                Front-End
+              </span>
+            </span>
+            <span className="hero-line">
+              <span className="hero-line-inner text-[clamp(4rem,15.2vw,15rem)]">
+                <img
+                  src={img}
+                  alt="Portrait of Adejare"
+                  className="mx-[0.06em] inline-block h-[0.62em] w-[1.15em] rounded-full object-cover align-[-0.06em]"
+                />
+                Developer<span className="text-accent">©</span>
+              </span>
+            </span>
+          </h1>
+
+          <div className="mt-12 flex items-end justify-between gap-10 md:mt-16">
+            <p
+              className="max-w-xl text-lg leading-snug text-bone/90 md:text-2xl"
+              data-hero-fade=""
+            >
+              Hey, I&rsquo;m Adejare. I curate immersive experiences with
+              technology and work with people all over the world to create
+              tailor-made websites and applications.
+            </p>
+            <div className="relative hidden h-28 w-28 shrink-0 md:block" data-hero-fade="">
+              <svg viewBox="0 0 100 100" className="h-full w-full animate-spin-slower">
+                <defs>
+                  <path
+                    id="badge-circle"
+                    d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"
+                  />
+                </defs>
+                <text className="fill-bone text-[8.5px] uppercase tracking-[0.16em]">
+                  <textPath href="#badge-circle" textLength="236">
+                    Open to work • Let&rsquo;s talk • Open to work •
+                  </textPath>
+                </text>
+              </svg>
+              <span className="absolute inset-0 flex items-center justify-center text-accent">
+                <FiArrowDown size={20} />
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* marquee */}
+        <div className="mt-16 overflow-hidden border-y border-white/10 py-4 md:mt-24" aria-hidden="true">
+          <div className="animate-marquee flex w-max whitespace-nowrap">
+            {[0, 1].map((half) => (
+              <span
+                key={half}
+                className="heading pr-2 uppercase leading-none text-2xl text-bone/85 md:text-4xl"
+              >
+                {"Front-End Developer ✦ Creative Director ✦ Adejare ✦ ".repeat(3)}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* about */}
+        <section id="about" className="px-5 py-24 md:px-10 md:py-36">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <h2
+              className="heading uppercase leading-[0.85] text-[clamp(3.4rem,10vw,9rem)]"
+              data-reveal=""
+            >
+              About me
+            </h2>
+            <span className="heading pt-3 text-xl text-accent md:text-2xl">(01)</span>
+          </div>
+
+          <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <div data-parallax-wrap="" className="overflow-hidden rounded-[24px]">
+                <div data-clip="" className="relative aspect-[3/4] w-full overflow-hidden rounded-[24px]">
+                  <img
+                    src={img}
+                    alt="Portrait of Adejare"
+                    data-parallax=""
+                    className="absolute left-0 top-[-12%] h-[124%] w-full object-cover"
+                  />
+                </div>
+              </div>
+              <ul className="mt-8">
+                {FACTS.map((fact) => (
+                  <li
+                    key={fact}
+                    className="border-t border-white/10 py-4 text-sm leading-relaxed text-bone/75 last:border-b"
+                    data-fade=""
+                  >
+                    {fact}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="md:col-span-8 md:pl-6">
+              <p className="max-w-[26ch] text-2xl leading-[1.2] text-bone md:text-4xl" data-fade="">
+                I&rsquo;m Adejare Daniels — a self-taught front-end developer
+                and school-taught computer engineer, now a graduate of the
+                Federal University of Technology, Akure.
+              </p>
+              <p
+                className="mt-12 text-2xl leading-[1.3] text-bone md:mt-16 md:text-[2.5rem]"
+                data-words=""
+              >
+                As a creative developer, I focus on design, development and
+                functionality, which allows me to work on projects from
+                concept until the very moment I hit publish. Unique layouts,
+                great typography and a clean, reusable, readable codebase —
+                that is what I focus on when working on websites.
               </p>
               <a
-                href="mailto:inioluwaadesida@gmail.com"
-                className="mt-1 inline-block text-xl text-ink underline decoration-accent decoration-2 underline-offset-4 transition-colors duration-200 ease-out hover:text-accent md:text-2xl"
+                href="#projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document
+                    .querySelector("#projects")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="button mt-14 inline-flex items-center gap-2 rounded-full border border-bone/30 px-7 py-3.5 text-[11px] uppercase tracking-label text-bone transition-colors duration-300 ease-out hover:bg-bone hover:text-ink"
+                data-fade=""
               >
-                inioluwaadesida@gmail.com
+                Explore my work
+                <FiArrowDown size={14} />
               </a>
             </div>
+          </div>
+        </section>
 
-            <div className="mt-4 flex w-full flex-col items-center justify-between gap-4 md:flex-row">
-              <div className="flex flex-col items-center text-sm text-ink/70 md:items-start">
-                <p className="hidden md:block">
-                  LAGOS :{" "}
-                  <span className="[font-variant-numeric:tabular-nums]">
-                    <Clock />
+        {/* services */}
+        <section id="services" className="px-5 py-24 md:px-10 md:py-36">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <h2
+              className="heading max-w-[10ch] uppercase leading-[0.85] text-[clamp(3.4rem,10vw,9rem)]"
+              data-reveal=""
+            >
+              Here&rsquo;s what I do
+            </h2>
+            <span className="heading pt-3 text-xl text-accent md:text-2xl">(02)</span>
+          </div>
+
+          <div className="mt-14 md:mt-20">
+            {SERVICES.map((s) => (
+              <div
+                key={s.n}
+                className="service-row group border-t border-white/10 last:border-b"
+                data-fade=""
+              >
+                <div className="relative z-[1] grid items-start gap-4 px-1 py-9 md:grid-cols-12 md:items-center md:px-4 md:py-11">
+                  <span className="heading text-sm text-accent md:col-span-1">
+                    ({s.n})
                   </span>
-                </p>
-                <p className="hidden md:block">Developed by Adejare</p>
+                  <h3 className="heading uppercase leading-[0.92] text-3xl transition-colors duration-300 group-hover:text-ink md:col-span-5 md:text-5xl">
+                    {s.title}
+                  </h3>
+                  <p className="body max-w-[48ch] leading-relaxed text-bone/70 transition-colors duration-300 group-hover:text-ink/75 md:col-span-4 md:text-lg">
+                    {s.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-2 md:col-span-2 md:justify-end">
+                    {s.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="text-bubble group-hover:border-ink/40 group-hover:text-ink"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
+            ))}
+          </div>
+        </section>
 
-              <div className="flex flex-row flex-wrap items-center justify-center">
-                <ButtonOne
-                  btnText={"Linkedin"}
-                  link={"https://www.linkedin.com/in/adejarree/"}
-                />
-                <ButtonOne btnText="Github" link={"https://www.github.com/dejare"} />
-                <ButtonOne
-                  btnText="Twitter"
-                  link={"https://twitter.com/Therealnicron?t=if7WE8sL0Lb5S-MNkK7Lrg&s=09"}
-                />
-              </div>
+        {/* projects */}
+        <section id="projects" className="px-5 py-24 md:px-10 md:py-36">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <h2 className="heading uppercase leading-[0.85] text-[clamp(3.4rem,10vw,9rem)]">
+              <span data-reveal="">Selected Works</span>
+              <sup className="ml-4 align-super font-head text-[0.22em] tracking-normal text-accent">
+                (05)
+              </sup>
+            </h2>
+            <span className="heading pt-3 text-xl text-accent md:text-2xl">(03)</span>
+          </div>
+          <p className="body mt-8 max-w-[52ch] text-lg text-bone/70" data-fade="">
+            Here are some of my past works — each one designed, built and
+            shipped end to end.
+          </p>
 
-              <div className="flex flex-col items-center justify-center text-center text-sm text-ink/70 md:items-end md:text-right">
-                <button
-                  type="button"
-                  onClick={() => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className="flex flex-row items-center transition-colors duration-200 ease-out hover:text-accent active:scale-95"
-                >
-                  <span className="mr-1 md:mr-2">
-                    <HiArrowCircleUp />
-                  </span>
-                  Back to top.
-                </button>
-                <p>&copy; 2023 - All Rights Reserved</p>
-              </div>
-            </div>
-          </footer>
-        </>
-      )}
+          <div className="mt-16 flex flex-col gap-24 md:mt-24 md:gap-40">
+            <NewProjectCard
+              index={1}
+              title="Mallet!"
+              details="A simple landing page for an NFT trading organization"
+              stackOne="Framer"
+              image={mallet}
+              link="https://mallet.vercel.app/"
+            />
+            <NewProjectCard
+              index={2}
+              title="Musicaa V1.0"
+              details="An online music streaming platform with search and sort functionality consuming spotify's API"
+              stackOne="Spotify"
+              stackTwo="API's"
+              image={musica}
+              link="https://musicaa.vercel.app"
+              flip={true}
+            />
+            <NewProjectCard
+              index={3}
+              title="GND Crypto"
+              details="An online dashboard for cryptocurrency transactions (mock numbers) with state management"
+              stackOne="Redux"
+              stackTwo="API's"
+              image={gnd}
+              link="https://dashboard-dejare.vercel.app"
+            />
+            <NewProjectCard
+              index={4}
+              title="Evaluate V1.0"
+              details="An all round intuitive, precise testing systems for students"
+              stackOne="Supabase"
+              image={evaluate}
+              link="https://evaluattee.vercel.app"
+              flip={true}
+            />
+            <NewProjectCard
+              index={5}
+              title="Adejare V1.0"
+              details="The last version of my previous portfolio.."
+              image={adejare}
+              link="https://adejarree.vercel.app/"
+            />
+          </div>
+        </section>
+      </main>
+
+      {/* footer */}
+      <footer id="contact" className="bg-bone px-5 pb-8 pt-24 text-ink md:px-10 md:pt-32">
+        <div
+          className="flex flex-col justify-between gap-2 text-[11px] uppercase tracking-label text-ink/60 md:flex-row"
+          data-fade=""
+        >
+          <p>Frontend Developer — Portfolio 2023</p>
+          <p>Available for full-time work</p>
+        </div>
+
+        <h2
+          className="heading mt-14 uppercase leading-[0.85] text-[clamp(3.2rem,10.5vw,10.5rem)]"
+          data-fade=""
+        >
+          Interested in
+          <br />
+          working <span className="footer-emoji">✌🏾</span>
+          <br />
+          together?
+        </h2>
+
+        <div className="mt-14" data-fade="">
+          <p className="text-[11px] uppercase tracking-label text-ink/60">
+            Drop me an email
+          </p>
+          <a
+            href="mailto:inioluwaadesida@gmail.com"
+            className="link-line mt-2 inline-block text-2xl md:text-4xl"
+          >
+            inioluwaadesida@gmail.com
+          </a>
+        </div>
+
+        <div className="mt-12 flex flex-wrap gap-3" data-fade="">
+          <a
+            className="c-button"
+            href="https://www.linkedin.com/in/adejarree/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a
+            className="c-button"
+            href="https://www.github.com/dejare"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            className="c-button"
+            href="https://twitter.com/Therealnicron?t=if7WE8sL0Lb5S-MNkK7Lrg&s=09"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Twitter
+          </a>
+        </div>
+
+        <div className="mt-16 overflow-hidden md:mt-20">
+          <p
+            data-wordmark=""
+            className="heading text-center uppercase leading-[0.78] text-[clamp(4.2rem,17.4vw,17.5rem)]"
+          >
+            Adejare<span className="text-accent">©</span>
+          </p>
+        </div>
+
+        <div className="mt-4 flex flex-col items-start justify-between gap-3 border-t border-ink/15 pt-5 text-sm text-ink/60 md:flex-row md:items-center">
+          <p>&copy; 2023 — All Rights Reserved</p>
+          <p className="hidden md:block">
+            Lagos :{" "}
+            <span className="[font-variant-numeric:tabular-nums]">
+              <Clock />
+            </span>{" "}
+            — Developed by Adejare
+          </p>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="button flex items-center gap-2 uppercase tracking-label text-ink/80 transition-colors duration-200 hover:text-accent"
+          >
+            Back to top
+            <FiArrowUp size={14} />
+          </button>
+        </div>
+      </footer>
     </div>
   );
 };
