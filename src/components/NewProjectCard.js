@@ -7,7 +7,6 @@ const NewProjectCard = ({
   stackOne,
   stackTwo,
   image,
-  ref,
   link,
   display,
   displayTwo,
@@ -15,36 +14,42 @@ const NewProjectCard = ({
   projectClass,
 }) => {
   return (
-    <div
-      className={`w-10/12 md:h-[90vh] max-h-fit bg-white text-black border-2 border-neutral-600 flex md:flex-row flex-col md:m-auto md:rounded-[32px] rounded-2xl ${projectClass} projects-item md:my-24 my-12 `}
+    <article
+      className={`projects-item group mx-auto my-12 flex max-h-fit w-full flex-col overflow-hidden rounded-[28px] bg-paper text-ink shadow-[0_32px_64px_-32px_rgba(0,0,0,0.6)] md:my-24 md:h-[90vh] md:flex-row ${projectClass || ""}`}
       id={id}
     >
-      <div className="flex flex-col p-4 md:justify-between justify-evenly w-4/4 md:w-2/4 md:p-8">
+      <div className="flex w-full flex-col justify-evenly p-6 md:w-1/2 md:justify-between md:p-10">
         <div className="w-full">
-          <h1 className="uppercase heading md:text-8xl text-8xl">{title}</h1>
-          <div className="flex flex-row flex-wrap items-center mt-1 md:w-2/4 md:mt-0">
-            <div className="mt-1 stack">React</div>
-            <div className="mt-1 stack">Tailwind</div>
-            <div className="mt-1 stack">Gsap</div>
-            <div className="mt-1 stack" style={{ display: `${display}` }}>
-              {stackOne}
-            </div>
-            <div
-              className="mt-1 stack md:mt-1"
-              style={{ display: `${displayTwo}` }}
-            >
-              {stackTwo}
-            </div>
+          <h3 className="heading uppercase text-[clamp(2.75rem,6vw,5.5rem)] leading-[0.95]">
+            {title}
+          </h3>
+          <div className="mt-4 flex flex-row flex-wrap items-center gap-y-2">
+            <div className="stack">React</div>
+            <div className="stack">Tailwind</div>
+            <div className="stack">Gsap</div>
+            {stackOne && (
+              <div className="stack" style={{ display: `${display}` }}>
+                {stackOne}
+              </div>
+            )}
+            {stackTwo && (
+              <div className="stack" style={{ display: `${displayTwo}` }}>
+                {stackTwo}
+              </div>
+            )}
           </div>
         </div>
-        <div className="mt-12 md:w-2/4 md:mt-0">
-          <p>{details}</p>
+        <div className="mt-12 md:mt-0 md:max-w-[42ch]">
+          <p className="text-base leading-relaxed text-ink/70 md:text-lg">
+            {details}
+          </p>
 
-          <div className="mt-5">
+          <div className="mt-6">
             <button
-              className="nav__button c-button contact-scroll "
+              type="button"
+              className="nav__button c-button contact-scroll"
               onClick={() => {
-                window.open(`${link}`, "_blank");
+                window.open(`${link}`, "_blank", "noopener,noreferrer");
               }}
             >
               <span className="c-link">
@@ -53,23 +58,23 @@ const NewProjectCard = ({
                   <span className="c-link__animated"> Visit Live </span>
                 </span>
               </span>
-              <div className="bg-[#292929] text-white rounded-full w-5 h-5 items-center justify-center flex border ml-3 md:ml-2">
+              <span className="ml-3 flex h-5 w-5 items-center justify-center rounded-full bg-ink text-paper md:ml-2">
                 <TbCornerRightDown />
-              </div>
+              </span>
             </button>
           </div>
         </div>
       </div>
 
-      <div className="relative mt-12 w-4/4 md:w-2/4 h-2/4 md:h-full md:object-cover md:mt-0 rounded-2xl">
-        {" "}
+      <div className="relative mt-6 w-full p-3 md:mt-0 md:h-full md:w-1/2 md:p-4">
         <img
           src={image}
-          alt="Project Image"
-          className="object-cover w-full h-full p2 rounded-2xl"
+          alt={`${title} project screenshot`}
+          loading="lazy"
+          className="h-full w-full rounded-[20px] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
         />
       </div>
-    </div>
+    </article>
   );
 };
 

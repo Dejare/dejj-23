@@ -6,7 +6,7 @@ import "../assets/styles/ls.css";
 function Nav({ closeNav }) {
   const bg = useRef();
   const tl = useRef();
-  const line = useRef()
+  const line = useRef();
 
   useEffect(() => {
     tl.current = gsap.timeline();
@@ -24,7 +24,6 @@ function Nav({ closeNav }) {
           ease: Power1.easeIn(),
         }
       )
-   
 
       .fromTo(
         "#li",
@@ -37,24 +36,25 @@ function Nav({ closeNav }) {
           opacity: 1,
           stagger: 0.15,
           ease: Power2.easeIn(),
-        },
+        }
       )
       .fromTo(
         "#line",
         {
           width: 0,
           opacity: 0,
-          backgroundColor: "#7c7c7c"
+          backgroundColor: "#7c7c7c",
         },
         {
-         width: "100%",
+          width: "100%",
           opacity: 1,
           stagger: 0.15,
           backgroundColor: "white",
           ease: Power2.easeIn(),
-        }, "-=1"
+        },
+        "-=1"
       )
-      
+
       .fromTo(
         "#status",
         {
@@ -67,7 +67,7 @@ function Nav({ closeNav }) {
           duration: 0.4,
           ease: Power4.easeInOut(),
         }
-      )
+      );
   }, []);
   const reverseAnim = () => {
     tl.current.reverse();
@@ -84,68 +84,53 @@ function Nav({ closeNav }) {
     "Daxx",
     "Young jonn",
   ];
-  const random = Math.floor(Math.random() * 10) + 1;
+  const random = Math.floor(Math.random() * artist.length);
+
+  const links = [
+    { label: "Home", href: "/", index: "01" },
+    { label: "About", href: "#about", index: "02" },
+    { label: "Projects", href: "#projects", index: "03" },
+    { label: "Contact", href: "#contact", index: "04" },
+  ];
 
   return (
-    <div className="w-screen h-screen">
+    <div className="h-screen w-full">
       <div
-        className=" w-11/12 h-[95vh] flex flex-col m-auto rounded-3xl md:p-12 p-4 bg-[#c0c0c010]"
+        className="m-auto flex h-[95vh] w-11/12 flex-col rounded-[28px] bg-coal p-4 shadow-[inset_0_0_0_1px_#ffffff14] md:p-12"
         ref={bg}
         id="bg"
       >
-        <nav className="w-full">
-          <ul className="text-white uppercase heading text-8xl navLink">
-            <li id="li" onClick={closeNav}>
-              <div className="flex flex-row items-center">
-                <TfiAngleDoubleRight size={20} className="mr-3 icon" />
-                <a href="/">Home </a>
+        <nav className="w-full" aria-label="Primary">
+          <ul className="navLink heading uppercase text-bone text-[clamp(3rem,10vw,6rem)] leading-[1.05]">
+            {links.map((item) => (
+              <div key={item.index}>
+                <li id="li" onClick={closeNav}>
+                  <div className="flex flex-row items-center">
+                    <TfiAngleDoubleRight size={20} className="icon mr-3" />
+                    <a href={item.href}>{item.label}</a>
+                  </div>
+                  <p>{item.index}</p>
+                </li>
+                <hr className="w-full" id="line" />
               </div>
-              <p>01</p>
-            </li>
-            <hr className="w-full"  id="line"/>
-            <li id="li" onClick={closeNav}>
-              <div className="flex flex-row items-center">
-                <TfiAngleDoubleRight size={20} className="mr-3 icon" />
-                <a href="#about">About </a>
-              </div>
-
-              <p>02</p>
-            </li>
-            <hr className="w-full"  id="line"/>
-            <li id="li" onClick={closeNav}>
-              <div className="flex flex-row items-center">
-                <TfiAngleDoubleRight size={20} className="mr-3 icon" />
-                <a href="#projects">Projects</a>
-              </div>
-              <p>03</p>
-            </li>
-            <hr className="w-full" id="line" />
-            <li id="li" onClick={closeNav}>
-              <div className="flex flex-row items-center">
-                <TfiAngleDoubleRight size={20} className="mr-3 icon" />
-                <a href="#contact">Contact</a>
-              </div>
-
-              <p>04</p>
-            </li>
-            <hr className="w-full"  id="line"/>
+            ))}
           </ul>
         </nav>
         <div
-          className="flex flex-row items-center justify-between mt-8 text-white"
+          className="mt-auto flex flex-row items-end justify-between pt-8 text-bone"
           id="status"
         >
           <div>
-            <p className="text-[10px] uppercase text-[#a3a3a3] font-bold">
+            <p className="text-[10px] font-bold uppercase tracking-label text-muted">
               Available in
             </p>
-            <h2>January 2023</h2>
+            <h2 className="mt-1 text-lg">January 2023</h2>
           </div>
-          <div>
-            <p className="text-[10px] uppercase text-[#a3a3a3] font-bold">
+          <div className="text-right">
+            <p className="text-[10px] font-bold uppercase tracking-label text-muted">
               Listening to
             </p>
-            <h2>{artist[random]}</h2>
+            <h2 className="mt-1 text-lg">{artist[random]}</h2>
           </div>
         </div>
       </div>
